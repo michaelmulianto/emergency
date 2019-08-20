@@ -1,10 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import StackNavigator from "./screens/StackNavigator";
 
-export default class App extends React.Component {
+export default class HomeScreen extends React.Component {
   render() {
-    return <StackNavigator />;
+    return (
+      <View>
+        <Text> "hello" </Text>
+      </View>
+    );
   }
 }
 
