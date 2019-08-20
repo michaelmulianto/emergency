@@ -1,11 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 export default class HomeScreen extends React.Component {
+  goToEmergency = () => {
+    console.log("Go to emergency");
+    this.props.navigation.navigate("Emergency");
+  };
+
+  goToChat = () => {
+    console.log("Go to chat");
+    this.props.navigation.navigate("Chat");
+  };
+
   render() {
     return (
-      <View>
-        <Text> "hello" </Text>
+      <View style={styles.container}>
+        <Button onPress={this.goToEmergency} title="Emergency" />
+        <Button onPress={this.goToChat} title="Chat" />
       </View>
     );
   }
