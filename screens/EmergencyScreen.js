@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Alert, Linking } from "react-native";
 
 export default class EmergencyScreen extends React.Component {
   goToFlood = () => {
@@ -34,7 +34,33 @@ export default class EmergencyScreen extends React.Component {
 
   goToEMERGENCYCALL = () => {
     console.log("Go to emergencycall");
-    this.props.navigation.navigate("EMERGENCYCALL");
+    Alert.alert(
+      "Pick Number",
+      "",
+      [
+        {
+          text: "BNPB - +62 21 29827444",
+          onPress: () => {
+            console.log("+622129827444");
+            Linking.openURL("tel://+622129827444");
+          }
+        },
+
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel"),
+          style: "cancel"
+        },
+        {
+          text: "TNI - +62 21 84595576",
+          onPress: () => {
+            console.log("+622184595576");
+            Linking.openURL("tel://+622184595576");
+          }
+        }
+      ],
+      { cancelable: false }
+    );
   };
 
   render() {
