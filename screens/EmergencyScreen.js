@@ -1,5 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, Alert, Linking } from "react-native";
+import { Container, Header } from "native-base";
+import { Col, Row, Grid } from "react-native-easy-grid";
+import { Ionicons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class EmergencyScreen extends React.Component {
   goToFlood = () => {
@@ -65,15 +69,77 @@ export default class EmergencyScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button onPress={this.goToFlood} title="Flood" />
-        <Button onPress={this.goToEarthquake} title="Earthquake" />
-        <Button onPress={this.goToTsunami} title="Tsunami" />
-        <Button onPress={this.goToTyphoon} title="Typhoon" />
-        <Button onPress={this.goToForestFire} title="ForestFire" />
-        <Button onPress={this.goToVolcanicEruption} title="VolcanicEruption" />
-        <Button onPress={this.goToEMERGENCYCALL} title="EMERGENCYCALL" />
-      </View>
+      <Container>
+        <Grid>
+          <Row>
+            <Col style={styles.cell}>
+              <TouchableOpacity
+                onPress={this.goToFlood}
+                style={styles.cellButton}
+              >
+                <Ionicons name="md-checkmark-circle" size={32} color="green" />
+                <Button onPress={this.goToFlood} title="Flood" />
+              </TouchableOpacity>
+            </Col>
+            <Col style={styles.cell}>
+              <TouchableOpacity
+                onPress={this.goToEarthquake}
+                style={styles.cellButton}
+              >
+                <Ionicons name="md-checkmark-circle" size={32} color="green" />
+                <Button onPress={this.goToEarthquake} title="Earthquake" />
+              </TouchableOpacity>
+            </Col>
+          </Row>
+          <Row>
+            <Col style={styles.cell}>
+              <TouchableOpacity
+                onPress={this.goToTsunami}
+                style={styles.cellButton}
+              >
+                <Ionicons name="md-checkmark-circle" size={32} color="green" />
+                <Button onPress={this.goToTsunami} title="Tsunami" />
+              </TouchableOpacity>
+            </Col>
+            <Col style={styles.cell}>
+              <TouchableOpacity
+                onPress={this.goToTyphoon}
+                style={styles.cellButton}
+              >
+                <Ionicons name="md-checkmark-circle" size={32} color="green" />
+                <Button onPress={this.goToTyphoon} title="Typhoon" />
+              </TouchableOpacity>
+            </Col>
+          </Row>
+          <Row>
+            <Col style={styles.cell}>
+              <TouchableOpacity
+                onPress={this.goToForestFire}
+                style={styles.cellButton}
+              >
+                <Ionicons name="md-checkmark-circle" size={32} color="green" />
+                <Button onPress={this.goToForestFire} title="ForestFire" />
+              </TouchableOpacity>
+            </Col>
+            <Col style={styles.cell}>
+              <TouchableOpacity
+                onPress={this.goToVolcanicEruption}
+                style={styles.cellButton}
+              >
+                <Ionicons name="md-checkmark-circle" size={32} color="green" />
+                <Button
+                  onPress={this.goToVolcanicEruption}
+                  title="VolcanicEruption"
+                />
+              </TouchableOpacity>
+            </Col>
+          </Row>
+
+          <Row>
+            <Button onPress={this.goToEMERGENCYCALL} title="EMERGENCYCALL" />
+          </Row>
+        </Grid>
+      </Container>
     );
   }
 }
@@ -84,5 +150,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
+  },
+
+  cell: {
+    backgroundColor: "yellow",
+    margin: 10,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  cellButton: {
+    backgroundColor: "pink",
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1
   }
 });
