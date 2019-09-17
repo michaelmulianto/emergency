@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Alert, Linking } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Alert,
+  Linking,
+  ImageBackground
+} from "react-native";
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Ionicons } from "@expo/vector-icons";
@@ -70,75 +78,113 @@ export default class EmergencyScreen extends React.Component {
   render() {
     return (
       <Container>
-        <Grid>
-          <Row>
-            <Col style={styles.cell}>
-              <TouchableOpacity
-                onPress={this.goToFlood}
-                style={styles.cellButton}
-              >
-                <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                <Button onPress={this.goToFlood} title="Flood" />
-              </TouchableOpacity>
-            </Col>
-            <Col style={styles.cell}>
-              <TouchableOpacity
-                onPress={this.goToEarthquake}
-                style={styles.cellButton}
-              >
-                <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                <Button onPress={this.goToEarthquake} title="Earthquake" />
-              </TouchableOpacity>
-            </Col>
-          </Row>
-          <Row>
-            <Col style={styles.cell}>
-              <TouchableOpacity
-                onPress={this.goToTsunami}
-                style={styles.cellButton}
-              >
-                <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                <Button onPress={this.goToTsunami} title="Tsunami" />
-              </TouchableOpacity>
-            </Col>
-            <Col style={styles.cell}>
-              <TouchableOpacity
-                onPress={this.goToTyphoon}
-                style={styles.cellButton}
-              >
-                <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                <Button onPress={this.goToTyphoon} title="Typhoon" />
-              </TouchableOpacity>
-            </Col>
-          </Row>
-          <Row>
-            <Col style={styles.cell}>
-              <TouchableOpacity
-                onPress={this.goToForestFire}
-                style={styles.cellButton}
-              >
-                <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                <Button onPress={this.goToForestFire} title="ForestFire" />
-              </TouchableOpacity>
-            </Col>
-            <Col style={styles.cell}>
-              <TouchableOpacity
-                onPress={this.goToVolcanicEruption}
-                style={styles.cellButton}
-              >
-                <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                <Button
-                  onPress={this.goToVolcanicEruption}
-                  title="VolcanicEruption"
-                />
-              </TouchableOpacity>
-            </Col>
-          </Row>
+        <ImageBackground
+          style={styles.cellBackground}
+          source={require("../assets/LOGO.png")}
+        >
+          <Grid style={styles.grid}>
+            <Row>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/Flood.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToFlood}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Flood</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/Earthquake.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToEarthquake}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Earthquake</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </Row>
+            <Row>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/Tsunami.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToTsunami}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Tsunami</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/Typhoon.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToTyphoon}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Typhoon</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </Row>
+            <Row>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/ForestFire.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToForestFire}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Forest Fire</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/VolcanicEruption.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToVolcanicEruption}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Volcanic Eruption</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </Row>
 
-          <Row>
-            <Button onPress={this.goToEMERGENCYCALL} title="EMERGENCYCALL" />
-          </Row>
-        </Grid>
+            <Row>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/BNPB.jpg")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToEMERGENCYCALL}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Emergency Call</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </Row>
+          </Grid>
+        </ImageBackground>
       </Container>
     );
   }
@@ -163,5 +209,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flex: 1
+  },
+
+  grid: {
+    backgroundColor: "rgba(0,0,0,0.7)"
+  },
+
+  cellBackground: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center"
+  },
+  cellButton: {
+    backgroundColor: "rgba(0,0,0,0.5)",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%"
+  },
+  cellIcon: {},
+  cellText: {
+    fontWeight: "bold",
+    color: "white"
   }
 });
