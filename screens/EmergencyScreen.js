@@ -80,6 +80,7 @@ export default class EmergencyScreen extends React.Component {
       <Container>
         <ImageBackground
           style={styles.cellBackground}
+          imageStyle={styles.Background}
           source={require("../assets/LOGO.png")}
         >
           <Grid style={styles.grid}>
@@ -219,6 +220,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     justifyContent: "center"
+  },
+  Background: {
+    resizeMode: "contain"
   },
   cellButton: {
     backgroundColor: "rgba(0,0,0,0.5)",
