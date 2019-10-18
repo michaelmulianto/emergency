@@ -14,33 +14,42 @@ const bot = {
     "https://www.unitedwaynems.org/wp-content/uploads/2014/03/Flag_of_the_Red_Cross.png"
 };
 
+function compareLocationResults(a, b) {
+  return a.distance > b.distance;
+}
+
+function checkIsPlace(a) {
+  return a.resultType === "place" && a.category === "hospital";
+}
+
 function processResponse(messageText) {
   let botMessageText = "";
-  let coords;
 
   navigator.geolocation.getCurrentPosition(
     position => {
       let coords = position.coords;
       console.log(`Your latitude is ${coords.latitude}`);
       console.log(`Your longitude is ${coords.longitude}`);
+      let mapQuery = `https://places.cit.api.here.com/places/v1/autosuggest?at=${coords.latitude},${coords.longitude}&q=hospital&app_id=N5nEvjSbDSCfxrJKR61D&app_code=kxwOsSQIVJ7X9J_D5ajC4Q`;
+
+      fetch(mapQuery)
+        .then(response => response.json())
+        .then(responseJSON => {
+          let results = responseJSON.results
+            .filter(checkIsPlace)
+            .sort(compareLocationResults);
+          console.log(results);
+
+          let nearest = results[0];
+          botMessageText = `Your nearest hospital is ${nearest.title}. Here is the link for directions: https://www.google.com/maps/search/${nearest.title}`;
+          return botMessageText;
+        });
     },
     error => {
       console.log(error);
     },
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
   );
-
-  let mapQuery =
-    "https://places.cit.api.here.com/places/v1/autosuggest?at=40.74917,-73.98529&q=chrysler&app_id=N5nEvjSbDSCfxrJKR61D&app_code=kxwOsSQIVJ7X9J_D5ajC4Q";
-
-  fetch(mapQuery)
-    .then(response => response.json)
-    .then(responseJSON => {
-      console.log(JSON.stringify(responseJSON));
-    })
-    .catch(error => {
-      console.error(error);
-    });
 
   if (messageText.toLowerCase().search("heart attack") != -1) {
     botMessageText = "Here is some information about heart attack";
