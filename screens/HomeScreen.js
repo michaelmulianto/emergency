@@ -6,13 +6,17 @@ import {
   Button,
   Alert,
   Linking,
-  ImageBackground
+  ImageBackground,
+  Image
 } from "react-native";
 import { Container } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class HomeScreen extends React.Component {
+  state = {
+    showEmergency: false
+  };
   goToEmergency = () => {
     console.log("Go to emergency");
     this.props.navigation.navigate("Emergency");
@@ -27,7 +31,20 @@ export default class HomeScreen extends React.Component {
     return (
       <Container>
         <Grid style={styles.grid}>
-          <Row>
+          {this.state.showEmergency ? (
+            <Row>
+              <Text>energency text</Text>
+            </Row>
+          ) : null}
+          <Row style={{ flex: 3 }}>
+            <Col style={{ justifyContent: "center", alignItems: "center" }}>
+              <Image
+                style={styles.logo}
+                source={require("../assets/BAPAT.png")}
+              ></Image>
+            </Col>
+          </Row>
+          <Row style={{ flex: 8 }}>
             <Col style={styles.cell}>
               <ImageBackground
                 style={styles.cellBackground}
@@ -103,5 +120,10 @@ const styles = StyleSheet.create({
   cellText: {
     fontWeight: "bold",
     color: "white"
+  },
+  logo: {
+    height: "100%",
+    width: "70%",
+    resizeMode: "contain"
   }
 });
