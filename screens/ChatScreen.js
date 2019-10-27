@@ -35,6 +35,8 @@ export default class ChatScreen extends React.Component {
     messages: []
   };
 
+  topic = "";
+
   getHospital() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -67,28 +69,39 @@ export default class ChatScreen extends React.Component {
     let botMessageText = "";
 
     if (messageText.toLowerCase().search("heart attack") != -1) {
+      this.topic = "heart attack";
       this.addBotMessage("Hang on, looking for a hospital now...");
       this.getHospital();
-    }
-    if (messageText.toLowerCase().search("headache") != -1) {
+      this.topic = "";
+    } else if (messageText.toLowerCase().search("headache") != -1) {
+      this.topic = "headache";
       this.addBotMessage(
         "Headaches are common among people and it is usually a sign of stress, high blood pressure, anxiety, or depression. On a scale of 1-5, how bad is the headache?"
       );
-    }
-    if (messageText.toLowerCase().search("1") != -1) {
+    } else if (
+      messageText.toLowerCase().search("1") != -1 &&
+      this.topic == "headache"
+    ) {
       this.addBotMessage(
         "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist."
       );
-    }
-    if (messageText.toLowerCase().search("2") != -1) {
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("2") != -1 &&
+      this.topic == "headache"
+    ) {
       this.addBotMessage(
         "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist."
       );
-    }
-    if (messageText.toLowerCase().search("3") != -1) {
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("3") != -1 &&
+      this.topic == "headache"
+    ) {
       this.addBotMessage(
         "Would you like to go to a hospital to get checked up?"
       );
+      this.topic = "";
     }
     if (messageText.toLowerCase().search("yes") != -1) {
       this.addBotMessage("Hang on, looking for a hospital now...");
