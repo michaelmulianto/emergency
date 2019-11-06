@@ -305,6 +305,13 @@ export default class ChatScreen extends React.Component {
     } else if (messageText.toLowerCase().search("thank you") != -1) {
       this.topic = "thank you";
       this.addBotMessage("Happy to help :)");
+      this.topic = "";
+    } else {
+      this.topic = "no response";
+      this.addBotMessage(
+        "Please ensure that you typed in your emergency correctly. If you did and you are receiving this message, please contact our developer to input your emergency into our system or wait for a future update. Thank you."
+      );
+      this.topic = "";
     }
   }
 
