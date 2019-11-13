@@ -7,7 +7,7 @@
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/BAPAT2.png",
+    "icon": "./assets/BAPAT3.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,7 +18,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.muliantomichael.BAPAT"
     },
     "android": {
       "package": "com.muliantomichael.BAPAT"
