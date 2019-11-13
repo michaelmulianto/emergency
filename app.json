@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "emergency",
-    "slug": "emergency",
+    "name": "BAPAT",
+    "slug": "BAPAT",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/BAPAT3.png",
+    "icon": "./assets/BAPAT2.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

@@ -11,6 +11,20 @@ import {
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Localization from "expo-localization";
+import i18n from "i18n-js";
+
+const langEn = {
+  Flood: "Flood"
+};
+
+const langIn = {
+  Flood: "Banjir"
+};
+
+i18n.fallbacks = true;
+i18n.translations = { en: langEn, in: langIn };
+i18n.locale = Localization.locale;
 
 export default class EmergencyScreen extends React.Component {
   goToFlood = () => {
@@ -93,7 +107,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToFlood}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Flood</Text>
+                    <Text style={styles.cellText}>{i18n.t("Flood")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>

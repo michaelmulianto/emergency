@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
+import { Platform, KeyboardAvoidingView, StatusBar } from "react-native";
+import { Header } from "react-navigation-stack";
 
 const user = {
   _id: 1,
@@ -355,11 +357,19 @@ export default class ChatScreen extends React.Component {
 
   render() {
     return (
-      <GiftedChat
-        messages={this.state.messages}
-        onSend={messages => this.onSend(messages)}
-        user={user}
-      />
+      <View style={{ flex: 1 }}>
+        <GiftedChat
+          messages={this.state.messages}
+          onSend={messages => this.onSend(messages)}
+          user={user}
+        />
+        {Platform.OS === "android" && (
+          <KeyboardAvoidingView
+            behavior="padding"
+            keyboardVerticalOffset={Header.HEIGHT + StatusBar.currentHeight}
+          />
+        )}
+      </View>
     );
   }
 }
