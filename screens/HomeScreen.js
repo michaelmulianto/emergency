@@ -1,17 +1,24 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Alert,
-  Linking,
-  ImageBackground,
-  Image
-} from "react-native";
+import { StyleSheet, Text, ImageBackground, Image } from "react-native";
 import { Container } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Localization from "expo-localization";
+import i18n from "i18n-js";
+
+const langEn = {
+  Emer: "Emergency",
+  Chat: "Chat"
+};
+
+const langIn = {
+  Emer: "Darurat",
+  Chat: "Bot Obrolan"
+};
+
+i18n.fallbacks = true;
+i18n.translations = { en: langEn, "id-US": langIn };
+i18n.locale = Localization.locale;
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -54,7 +61,7 @@ export default class HomeScreen extends React.Component {
                   onPress={this.goToEmergency}
                   style={styles.cellButton}
                 >
-                  <Text style={styles.cellText}>EMERGENCY</Text>
+                  <Text style={styles.cellText}>Emergency</Text>
                 </TouchableOpacity>
               </ImageBackground>
             </Col>
@@ -67,7 +74,7 @@ export default class HomeScreen extends React.Component {
                   onPress={this.goToChat}
                   style={styles.cellButton}
                 >
-                  <Text style={styles.cellText}>CHAT</Text>
+                  <Text style={styles.cellText}>Chat</Text>
                 </TouchableOpacity>
               </ImageBackground>
             </Col>

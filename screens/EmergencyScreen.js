@@ -2,8 +2,6 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  View,
-  Button,
   Alert,
   Linking,
   ImageBackground
@@ -15,15 +13,29 @@ import * as Localization from "expo-localization";
 import i18n from "i18n-js";
 
 const langEn = {
-  Flood: "Flood"
+  Flood: "Flood",
+  Earthquake: "Earthquake",
+  Tsunami: "Tsunami",
+  Typhoon: "Typhoon",
+  ForestF: "Forest Fire",
+  Volcano: "Volcanic Eruption",
+  Call: "Emergency Call",
+  Number: "Pick Number"
 };
 
 const langIn = {
-  Flood: "Banjir"
+  Flood: "Banjir",
+  Earthquake: "Gempa Bumi",
+  Tsunami: "Tsunami",
+  Typhoon: "Topan",
+  ForestF: "Kebakaran Hutan",
+  Volcano: "Gunung Meletus",
+  Call: "Telepon Darurat",
+  Number: "Pilih"
 };
 
 i18n.fallbacks = true;
-i18n.translations = { en: langEn, in: langIn };
+i18n.translations = { en: langEn, "id-US": langIn };
 i18n.locale = Localization.locale;
 
 export default class EmergencyScreen extends React.Component {
@@ -60,7 +72,7 @@ export default class EmergencyScreen extends React.Component {
   goToEMERGENCYCALL = () => {
     console.log("Go to emergencycall");
     Alert.alert(
-      "Pick Number",
+      "Pick Number / Pilih Nomor Telpon",
       "",
       [
         {
@@ -89,6 +101,7 @@ export default class EmergencyScreen extends React.Component {
   };
 
   render() {
+    console.log(JSON.stringify(i18n));
     return (
       <Container>
         <ImageBackground
@@ -120,7 +133,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToEarthquake}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Earthquake</Text>
+                    <Text style={styles.cellText}>{i18n.t("Earthquake")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>
@@ -135,7 +148,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToTsunami}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Tsunami</Text>
+                    <Text style={styles.cellText}>{i18n.t("Tsunami")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>
@@ -148,7 +161,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToTyphoon}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Typhoon</Text>
+                    <Text style={styles.cellText}>{i18n.t("Typhoon")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>
@@ -163,7 +176,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToForestFire}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Forest Fire</Text>
+                    <Text style={styles.cellText}>{i18n.t("ForestF")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>
@@ -176,7 +189,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToVolcanicEruption}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Volcanic Eruption</Text>
+                    <Text style={styles.cellText}>{i18n.t("Volcano")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>
@@ -192,7 +205,7 @@ export default class EmergencyScreen extends React.Component {
                     onPress={this.goToEMERGENCYCALL}
                     style={styles.cellButton}
                   >
-                    <Text style={styles.cellText}>Emergency Call</Text>
+                    <Text style={styles.cellText}>{i18n.t("Call")}</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>
