@@ -1,36 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import EmergencyView from "../components/EmergencyView";
+import i18n from "../components/Translation";
 
 export default class TyphoonScreen extends React.Component {
   render() {
     return (
       <EmergencyView>
-        <Text style={[styles.text, styles.title]}>TYPHOON: </Text>
+        <Text style={[styles.text, styles.title]}>{i18n.t("tyt")}</Text>
         <Image style={styles.image} source={require("../assets/typ.png")} />
         <View style={styles.card}>
-          <Text style={styles.text}>Stay inside the house</Text>
-          <Text style={styles.text}>
-            Close all windows and turn off the main power unit
-          </Text>
-          <Text style={styles.text}>
-            Continuously check for weather updates
-          </Text>
-          <Text style={styles.text}>
-            Check whether or not the supply of water is safe to drink. If not,
-            boil water for at least 20 minutes
-          </Text>
+          <Text style={styles.text}>{i18n.t("ty1")}</Text>
+          <Text style={styles.text}>{i18n.t("ty2")}</Text>
+          <Text style={styles.text}>{i18n.t("ty3")}</Text>
+          <Text style={styles.text}>{i18n.t("ty4")}</Text>
 
           <Text style={styles.text}></Text>
-          <Text style={styles.text}>After The Typhoon:</Text>
-          <Text style={styles.text}>
-            Beware of dangerous animals such as snakes that may have entered
-            your house
-          </Text>
-          <Text style={styles.text}>
-            Report damaged electrical cables and fallen electric posts to the
-            authorities.
-          </Text>
+          <Text style={styles.text}>{i18n.t("ty5")}</Text>
+          <Text style={styles.text}>{i18n.t("ty6")}</Text>
+          <Text style={styles.text}>{i18n.t("ty7")}</Text>
         </View>
       </EmergencyView>
     );

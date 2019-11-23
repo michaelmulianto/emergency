@@ -9,34 +9,7 @@ import {
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import * as Localization from "expo-localization";
-import i18n from "i18n-js";
-
-const langEn = {
-  Flood: "Flood",
-  Earthquake: "Earthquake",
-  Tsunami: "Tsunami",
-  Typhoon: "Typhoon",
-  ForestF: "Forest Fire",
-  Volcano: "Volcanic Eruption",
-  Call: "Emergency Call",
-  Number: "Pick Number"
-};
-
-const langIn = {
-  Flood: "Banjir",
-  Earthquake: "Gempa Bumi",
-  Tsunami: "Tsunami",
-  Typhoon: "Topan",
-  ForestF: "Kebakaran Hutan",
-  Volcano: "Gunung Meletus",
-  Call: "Telepon Darurat",
-  Number: "Pilih"
-};
-
-i18n.fallbacks = true;
-i18n.translations = { en: langEn, "id-US": langIn };
-i18n.locale = Localization.locale;
+import i18n from "../components/Translation";
 
 export default class EmergencyScreen extends React.Component {
   goToFlood = () => {

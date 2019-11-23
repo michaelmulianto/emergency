@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": ["ios", "android", "web"],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/BAPAT2.png",
     "splash": {
@@ -22,7 +22,8 @@
       "bundleIdentifier": "com.muliantomichael.BAPAT"
     },
     "android": {
-      "package": "com.muliantomichael.BAPAT"
+      "package": "com.muliantomichael.BAPAT",
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
     }
   }
 }

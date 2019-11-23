@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import EmergencyView from "../components/EmergencyView";
+import i18n from "../components/Translation";
 
 export default class TsunamiScreen extends React.Component {
   render() {
@@ -9,31 +10,15 @@ export default class TsunamiScreen extends React.Component {
         <Text style={[styles.text, styles.title]}>TSUNAMI: </Text>
         <Image style={styles.image} source={require("../assets/tsunev.jpg")} />
         <View style={styles.card}>
-          <Text style={styles.text}>
-            Evacuate: DO NOT wait! Leave as soon as you see any natural signs of
-            a tsunami or receive an official tsunami warning.
-          </Text>
-          <Text style={styles.text}>
-            Go inland as quickly as possible and find high grounds
-          </Text>
-          <Text style={styles.text}>
-            If you are in a boat, face the wave direction and head out into the
-            sea
-          </Text>
-          <Text style={styles.text}>
-            If you are in the water, grab onto something that floats or is
-            sturdy
-          </Text>
+          <Text style={styles.text}>{i18n.t("t1")}</Text>
+          <Text style={styles.text}>{i18n.t("t2")}</Text>
+          <Text style={styles.text}>{i18n.t("t3")}</Text>
+          <Text style={styles.text}>{i18n.t("t4")}</Text>
 
           <Text style={styles.text}></Text>
-          <Text style={styles.text}>After The Tsunami:</Text>
-          <Text style={styles.text}>
-            Avoid wading in floodwater, which can contain dangerous debris.
-            Water may be deeper than it appears
-          </Text>
-          <Text style={styles.text}>
-            Stay away from damaged buildings, roads, and bridges
-          </Text>
+          <Text style={styles.text}>{i18n.t("t5")}</Text>
+          <Text style={styles.text}>{i18n.t("t6")}</Text>
+          <Text style={styles.text}>{i18n.t("t7")}</Text>
         </View>
       </EmergencyView>
     );

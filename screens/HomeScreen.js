@@ -1,24 +1,23 @@
 import React from "react";
 import { StyleSheet, Text, ImageBackground, Image } from "react-native";
 import { Container } from "native-base";
+import i18n from "../components/Translation";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import * as Localization from "expo-localization";
-import i18n from "i18n-js";
+import * as firebase from "firebase";
 
-const langEn = {
-  Emer: "Emergency",
-  Chat: "Chat"
+var firebaseConfig = {
+  apiKey: "AIzaSyBWEaiAtk_zg7R1WOiapfiCqqm36b0Y88g",
+  authDomain: "bapat-6e6a6.firebaseapp.com",
+  databaseURL: "https://bapat-6e6a6.firebaseio.com",
+  projectId: "bapat-6e6a6",
+  storageBucket: "bapat-6e6a6.appspot.com",
+  messagingSenderId: "950064821641",
+  appId: "1:950064821641:web:5ed6c18714375d5bc0dd58",
+  measurementId: "G-1L9REWZTVV"
 };
 
-const langIn = {
-  Emer: "Darurat",
-  Chat: "Bot Obrolan"
-};
-
-i18n.fallbacks = true;
-i18n.translations = { en: langEn, "id-US": langIn };
-i18n.locale = Localization.locale;
+firebase.initializeApp(firebaseConfig);
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -61,7 +60,7 @@ export default class HomeScreen extends React.Component {
                   onPress={this.goToEmergency}
                   style={styles.cellButton}
                 >
-                  <Text style={styles.cellText}>Emergency</Text>
+                  <Text style={styles.cellText}>{i18n.t("Emer")}</Text>
                 </TouchableOpacity>
               </ImageBackground>
             </Col>

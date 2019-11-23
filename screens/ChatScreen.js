@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
 import { Platform, KeyboardAvoidingView, StatusBar } from "react-native";
 import { Header } from "react-navigation-stack";
+import i18n from "../components/Translation";
 
 const user = {
   _id: 1,

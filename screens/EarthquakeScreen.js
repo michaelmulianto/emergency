@@ -1,36 +1,26 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import EmergencyView from "../components/EmergencyView";
+import i18n from "../components/Translation";
 
 export default class EarthquakeScreen extends React.Component {
   render() {
     return (
       <EmergencyView>
-        <Text style={[styles.text, styles.title]}>EARTHQUAKE:</Text>
+        <Text style={[styles.text, styles.title]}>{i18n.t("et")}</Text>
         <Image style={styles.image} source={require("../assets/Drop.png")} />
         <View style={styles.card}>
-          <Text style={styles.text}>
-            When earthquake stops go outside and find an open area
-          </Text>
-          <Text style={styles.text}>
-            Stay AWAY from buildings, there will be aftershocks following
-          </Text>
+          <Text style={styles.text}>{i18n.t("e1")}</Text>
+          <Text style={styles.text}>{i18n.t("e2")}</Text>
+          <Text style={styles.text}>{i18n.t("e3")}</Text>
           <Text style={styles.text}></Text>
-          <Text style={styles.text}>If Outdoors:</Text>
-          <Text style={styles.text}>
-            Quickly find an open area away from buildings and stay there until
-            the earthquake stops
-          </Text>
-          <Text style={styles.text}>
-            If you are in a vehicle, stop your vehicle as soon as possible and
-            find an open area
-          </Text>
+          <Text style={styles.text}>{i18n.t("e4")}</Text>
+          <Text style={styles.text}>{i18n.t("e5")}</Text>
+          <Text style={styles.text}>{i18n.t("e6")}</Text>
           <Text style={styles.text}></Text>
-          <Text style={styles.text}>After The Earthquake:</Text>
-          <Text style={styles.text}>
-            Expect aftershocks to follow the main shock of an earthquake
-          </Text>
-          <Text style={styles.text}>Do not enter damaged buildings</Text>
+          <Text style={styles.text}>{i18n.t("e7")}</Text>
+          <Text style={styles.text}>{i18n.t("e8")}</Text>
+          <Text style={styles.text}>{i18n.t("e9")}</Text>
         </View>
       </EmergencyView>
     );

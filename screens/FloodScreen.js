@@ -2,39 +2,27 @@ import React from "react";
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import EmergencyView from "../components/EmergencyView";
+import i18n from "../components/Translation";
 
 export default class FloodScreen extends React.Component {
   render() {
     return (
       <EmergencyView>
-        <Text style={[styles.text, styles.title]}>FLOOD:</Text>
+        <Text style={[styles.text, styles.title]}>{i18n.t("ft")}</Text>
         <Image
           style={styles.image}
           source={require("../assets/Floodstep.png")}
         />
         <View style={styles.card}>
-          <Text style={styles.text}>
-            DO NOT walk, swim, or dive into flood water
-          </Text>
-          <Text style={styles.text}>
-            Stay away from areas with fast-moving waters
-          </Text>
-          <Text style={styles.text}>
-            If flood gets worst, find higher ground
-          </Text>
-          <Text style={styles.text}>WAIT for help to arrive</Text>
+          <Text style={styles.text}>{i18n.t("f1")}</Text>
+          <Text style={styles.text}>{i18n.t("f2")}</Text>
+          <Text style={styles.text}>{i18n.t("f3")}</Text>
+          <Text style={styles.text}>{i18n.t("f4")}</Text>
+          <Text style={styles.text}>{i18n.t("f5")}</Text>
           <Text style={styles.text}></Text>
           <Text style={styles.text}>After The Flood:</Text>
-          <Text style={styles.text}>
-            Listen to authorities for information and instructions. Return home
-            only when authorities say it is safe
-          </Text>
-          <Text style={styles.text}>Avoid driving, except in emergencies</Text>
-          <Text style={styles.text}>
-            Be aware of the risk of electrocution. Do not touch electrical
-            equipment if it is wet or if you are standing in water. If it is
-            safe to do so, turn off the electricity to prevent electric shock.
-          </Text>
+          <Text style={styles.text}>{i18n.t("f6")}</Text>
+          <Text style={styles.text}>{i18n.t("f7")}</Text>
         </View>
       </EmergencyView>
     );

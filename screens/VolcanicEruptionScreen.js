@@ -1,31 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import EmergencyView from "../components/EmergencyView";
+import i18n from "../components/Translation";
 
 export default class VolcanicEruptionScreen extends React.Component {
   render() {
     return (
       <EmergencyView>
-        <Text style={[styles.text, styles.title]}>VOLCANIC ERUPTION: </Text>
+        <Text style={[styles.text, styles.title]}>{i18n.t("vt")}</Text>
         <Image style={styles.image} source={require("../assets/volcan.png")} />
         <View style={styles.card}>
-          <Text style={styles.text}>
-            Evacuate only as recommended by authorities to stay clear of lava,
-            mudflows, and flying rocks and debris.
-          </Text>
-          <Text style={styles.text}>
-            Before you leave the house, change into long-sleeved shirts and long
-            pants and use goggles or eyeglasses, not contacts. Wear an emergency
-            mask or hold a damp cloth over your face
-          </Text>
-          <Text style={styles.text}>
-            If you are not evacuating, close windows and doors and block
-            chimneys and other vents
-          </Text>
-          <Text style={styles.text}>
-            Be aware that ash may put excess weight on your roof and need to be
-            swept away. Wear protection during cleanups
-          </Text>
+          <Text style={styles.text}>{i18n.t("v1")}</Text>
+          <Text style={styles.text}>{i18n.t("v2")}</Text>
+          <Text style={styles.text}>{i18n.t("v3")}</Text>
+          <Text style={styles.text}>{i18n.t("v4")}</Text>
+          <Text style={styles.text}>{i18n.t("v5")}</Text>
         </View>
       </EmergencyView>
     );
