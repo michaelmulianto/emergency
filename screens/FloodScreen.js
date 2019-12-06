@@ -20,7 +20,6 @@ export default class FloodScreen extends React.Component {
           <Text style={styles.text}>{i18n.t("f4")}</Text>
           <Text style={styles.text}>{i18n.t("f5")}</Text>
           <Text style={styles.text}></Text>
-          <Text style={styles.text}>After The Flood:</Text>
           <Text style={styles.text}>{i18n.t("f6")}</Text>
           <Text style={styles.text}>{i18n.t("f7")}</Text>
         </View>
