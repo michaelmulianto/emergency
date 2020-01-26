@@ -22,8 +22,10 @@
       "bundleIdentifier": "com.muliantomichael.BAPAT"
     },
     "android": {
+      "icon": "./assets/BAPAT-IOS.png",
       "package": "com.muliantomichael.BAPAT",
       "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
-    }
+    },
+    "description": ""
   }
 }
