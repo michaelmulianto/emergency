@@ -90,14 +90,78 @@ const langEn = {
   v4:
     "Be aware that ash may put excess weight on your roof and need to be swept away. Wear protection during cleanups",
   v5:
-    "Ash can damage machinery and metal parts, so avoid carrying transport vehicles. If you have to drive, stay under 56 kilometers per hour."
+    "Ash can damage machinery and metal parts, so avoid carrying transport vehicles. If you have to drive, stay under 56 kilometers per hour.",
+
+  //chat bot responses
+  hospital1: "Your nearest hospital is ",
+  hospital2: ". Here is the link for directions: ",
+  heartattack: "Hang on, looking for a hospital now...",
+  headache:
+    "Headaches are common among people and it is usually a sign of stress, high blood pressure, anxiety, or depression. On a scale of 1-5, how bad is the headache?",
+  headache12:
+    "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist.",
+  headache24: "Would you like to go to a hospital to get checked up?",
+  headache24y: "Hang on, looking for a hospital now...",
+  headache24n:
+    "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist.",
+  headache5:
+    "We recommend you to visit a hospital. Please wait while we search for one...",
+  stroke:
+    "Please immediately bring the person to a hospital. Hang on while we look for one...",
+  pinkeye:
+    "A pink eye is not a serious emergency so don’t worry about it. Try to clean your eyelids with a wet cloth and apply warm/cold compresses several times daily. If you wear contacts, stop wearing them until the pink eye is cured. If you see no improvements, please go and see a doctor.",
+  choking:
+    "You must islodge the respiratory tract obstruction by bending the person's head and shoulders forward, or in the case of a small child, hold them upside down and thump the back hard, between the shoulder-blades.",
+  fracture:
+    "Please immediately bring the person to a hospital. We are finding one now...",
+  fever: "On a scale of 1-3, how bad is your fever?",
+  fever1:
+    "Continuously take your temperature and try to get some sleep. Remember to keep hydrated and stay cool.",
+  fever2:
+    "We recommend you to take over-the-counter medicine such as ibuprofen to reduce fever. Continuously take your temperature and try to get some sleep. Remember to keep hydrated and stay cool.",
+  fever3:
+    "We recommend you to go to a doctor. Please wait while we locate a hospital near you.",
+  backpain:
+    "Back pain can often be eased with home treatments, including icing or heating, strengthening exercises, light activity and over-the-counter medications for pain. If symptoms persist after a week or two of home care, we recommend you come in for a physician evaluation.",
+  diarrhea:
+    "Please drink a lot of water and eat a recovery diet such as bananas and cooked, soft vegetables. Try over-the-counter medicines too by visiting your local pharmacist.",
+  runnynose:
+    "Try placing a cool mist humidifier in the bedroom to help promote better sleep, keeping the nose clear.",
+  itchy: "Is your skin turning red or swollen?",
+  itchyy:
+    "Please go and see a doctor. We are searching for the closest hospital now.",
+  itchyn:
+    "This might be due to dust allergy. Try and move out of the place and compress your skin with cold water.",
+  sorethroat: "What color is your phlegm?",
+  sorethroatb:
+    "Black phlegm is most common among smokers. If you are one, please attempt to stop until your sore throat cures. If your phlegm is still black after a couple of days, please go and see a doctor.",
+  sorethroatg:
+    "Green phlegm is a sign of infection. Please go see a doctor. We are looking for the closest hospital right now...",
+  sorethroaty:
+    "Yellow phlegm is a sign that your body is fighting an infection. Please go see a doctor before it gets worse. We are looking for the closest hospital right now…",
+  sorethroatw:
+    "White phlegm may lead to an infection. Please treat your sore throat with an  over-the-counter medicine to treat it before it gets worse.",
+  sorethroatr:
+    "Phlegm with blood just means that you are dehydrated. Try and drink at least 8 glasses of water a day.",
+  hardbreathing: "Does your chest/lung hurt?",
+  hardbreathingy:
+    "Please go and see a doctor. We are searching for the closest one right now.",
+  hardbreathingn:
+    "It might be due to the air pollution in Indonesia. Try and stay inside the house for a couple hours. If your lungs still hurt, we recommend you to go see a doctor.",
+  thankyou: "Happy to help :)"
 };
 
 const langIn = {
+  //chat bot responses
+  hospital1: "Rumah sakit yang terdekat anda adalah ",
+  hospital2: ". Ini adalah link untuk direksi: ",
+  heartattack:
+    "Tunggu sebentar, kami sedang mencari rumah sakit terdekat sekarang...",
+
   //home screen
   Emer: "Darurat",
   Chat: "Bot Obrolan",
-  no: "Pilih Nomore Telpon",
+  no: "Pilih Nomor Telpon",
 
   //emergency screen
   Flood: "Banjir",
@@ -180,7 +244,65 @@ const langIn = {
   v4:
     "Saat abu dapat menambah berat pada atap rumah anda, sapu secepatnya. Pakailah perlindungan saat pembersihan",
   v5:
-    "Abu dapat merusak mesin dan bagian logam, jadi hindari membawa kendaraan transport. Jika anda harus mengemudi, tinggal di bawah 56 kilometer per jam."
+    "Abu dapat merusak mesin dan bagian logam, jadi hindari membawa kendaraan transport. Jika anda harus mengemudi, tinggal di bawah 56 kilometer per jam.",
+
+  //chat bot responses
+  hospital1: "Rumah sakit terdekat anda adalah ",
+  hospital2: ". Inilah tautan untuk arahnya: ",
+  heartattack:
+    "Mohon menunggu, kami sedang mencari rumah sakit terdekat anda...",
+  headache:
+    "Sakit kepala sering terjadi pada orang-orang dan biasanya merupakan tanda stres, tekanan darah tinggi, kecemasan, atau depresi. Pada skala 1-5, seberapa buruk sakit kepala anda?",
+  headache12:
+    "Kami menyarankan anda untuk tidur selama 1-2 jam. Jika anda masih mengalami sakit kepala, coba kunjungi apotek terdekat.",
+  headache24:
+    "Apakah anda ingin pergi ke rumah sakit untuk diperiksa oleh dokter?",
+  headache24y: "Mohon menunggu saat kami mendeteksi rumah sakit terdekat...",
+  headache24n: "Coba tidurkan diri.",
+  headache5:
+    "Kami menyarankan anda untuk pergi ke dokter. Mohon menunggu saat kami mencarikan anda rumah sakit terdekat.",
+  stroke:
+    "Tolong segera bawa orang itu ke rumah sakit. Mohon tunggu, kami sedang mencari rumah sakit terdekat.",
+  pinkeye:
+    "Mata merah bukan keadaan darurat yang serius, jadi jangan khawatir. Coba membersihkan kelopak mata anda dengan kain basah dan kompres dengan air hangat / dingin beberapa kali sehari. Jika anda memakai kontak, berhentikan pemakainya sampai mata merahnya sembuh. Jika anda tidak melihat peningkatan, silakan kunjungi dokter.",
+  choking:
+    "Anda harus menghindari sumbatan saluran pernapasan dengan menekuk kepala dan bahu orang yang tersedak ke depan. Jika yang tersedak adalah anak kecil, pegang dengan posisi terbalik dan benturkan bagian belakangnya dengan keras di antara tulang belikat.",
+  fracture:
+    "Tolong segera bawa orang itu ke rumah sakit. Kami sedang mencari rumah sakit terdekat saat ini. Mohon menunggu...",
+  fever: "Pada skala 1-3, mohon memberi kami tahu seberapa buruk demam anda?",
+  fever1:
+    "Terus mengukur suhu tubuh anda dan mencoba tidur. Ingatlah untuk tetap terhidrasi dan tetap tenang.",
+  fever2:
+    "Kami menyarankan Anda untuk minum obat ibuprofen untuk mengurangi demam. Terus mengukur suhu tubuh anda dan mencoba tidur. Ingatlah untuk tetap terhidrasi dan tetap tenang.",
+  fever3:
+    "Kami menyarankan anda untuk pergi ke dokter. Mohon menunggu saat kami mencarikan anda rumah sakit terdekat.",
+  backpain:
+    "Sakit  punggung seringkali dapat diredakan dengan perawatan di rumah, termasuk pemanasan, latihan penguatan, aktivitas ringan dan obat-obatan bebas untuk nyeri. Jika gejalanya menetap setelah satu atau dua minggu perawatan di rumah, kami sarankan anda pergi ke dokter untuk dievaluasi.",
+  diarrhea:
+    "Minumlah banyak air dan makanlah diet pemulihan seperti pisang dan sayuran lunak yang dimasak. Coba juga obat bebas dengan mengunjungi apoteker setempat.",
+  runnynose:
+    "Cobalah menempatkan pelembap kabut dingin di kamar tidur untuk membantu meningkatkan kualitas tidur, membuat hidung tetap jernih.",
+  itchy: "Apakah kulit anda merah atau bengkak?",
+  itchyy: "Tolong pergi dan berkonsultasi dengan dokter.",
+  itchyn:
+    "Ini mungkin karena alergi debu. Coba keluar dari tempat anda berada dan kompres kulit anda dengan air dingin.",
+  sorethroat: "Apa warna dahak anda?",
+  sorethroatb:
+    "Dahak hitam sangat umum di kalangan perokok. Jika merokok, cobalah untuk berhenti sampai sakit tenggorokan anda telah sembuh. Jika dahak anda masih hitam setelah beberapa hari, silakan pergi ke dokter.",
+  sorethroatg:
+    "Dahak hijau adalah tanda infeksi. Silahkan pergi ke dokter. Kami sedang mencari rumah sakit terdekat sekarang...",
+  sorethroaty:
+    "Dahak kuning adalah tanda bahwa tubuh Anda sedang melawan infeksi. Silahkan pergi ke dokter sebelum sakit anda menjadi lebih buruk. Kami sedang mencari rumah sakit terdekat sekarang...",
+  sorethroatw:
+    "Dahak putih dapat menyebabkan infeksi. Mohon rawat tenggorokan anda dengan obat bebas sebelum sakit anda tambah parah.",
+  sorethroatr:
+    "Dahak dengan darah berarti Anda sedang mengalami dehidrasi. Cobalah minum setidaknya 8 gelas air per hari.",
+  hardbreathing: "Apakah paru-paru anda sakit?",
+  hardbreathingy:
+    "Silahkan pergi dan menemui dokter. Kami sedang mencari rumah sakit yang terdekat sekarang...",
+  hardbreathingn:
+    "Ini mungkin karena polusi udara di Indonesia. Cobalah tetap di dalam rumah selama beberapa jam. Jika paru-paru anda masih sakit, kami sarankan anda pergi ke dokter.",
+  thankyou: "Sama-sama! :)"
 };
 
 i18n.fallbacks = true;

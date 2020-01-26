@@ -45,7 +45,7 @@ export default class EmergencyScreen extends React.Component {
   goToEMERGENCYCALL = () => {
     console.log("Go to emergencycall");
     Alert.alert(
-      "Pick Number / Pilih Nomor Telpon",
+      i18n.t("no"),
       "",
       [
         {

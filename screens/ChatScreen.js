@@ -57,7 +57,11 @@ export default class ChatScreen extends React.Component {
             console.log(results);
 
             let nearest = results[0];
-            botMessageText = `Your nearest hospital is ${nearest.title}. Here is the link for directions: https://www.google.com/maps/search/${nearest.title}`;
+            botMessageText =
+              i18n.t("hospital1") +
+              nearest.title +
+              i18n.t("hospital2") +
+              `https://www.google.com/maps/search/${nearest.title}`;
             this.addBotMessage(botMessageText);
           });
       },
@@ -71,82 +75,75 @@ export default class ChatScreen extends React.Component {
   processResponse(messageText) {
     let botMessageText = "";
 
-    if (messageText.toLowerCase().search("heart attack") != -1) {
+    if (
+      messageText.toLowerCase().search("heart attack") != -1 ||
+      messageText.toLowerCase().search("jantung") != -1
+    ) {
       this.topic = "heart attack";
-      this.addBotMessage("Hang on, looking for a hospital now...");
+      this.addBotMessage(i18n.t("heartattack"));
       this.getHospital();
       this.topic = "";
-    } else if (messageText.toLowerCase().search("headache") != -1) {
+    } else if (
+      messageText.toLowerCase().search("headache") != -1 ||
+      messageText.toLowerCase().search("kepala") != -1 ||
+      messageText.toLowerCase().search("pusing") != -1
+    ) {
       this.topic = "headache";
-      this.addBotMessage(
-        "Headaches are common among people and it is usually a sign of stress, high blood pressure, anxiety, or depression. On a scale of 1-5, how bad is the headache?"
-      );
+      this.addBotMessage(i18n.t("headache"));
     } else if (
-      messageText.toLowerCase().search("1") != -1 &&
-      this.topic == "headache"
+      messageText.toLowerCase().search("1") != -1 ||
+      (messageText.toLowerCase().search("2") != -1 && this.topic == "headache")
     ) {
-      this.addBotMessage(
-        "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist."
-      );
+      this.addBotMessage(i18n.t("headache12"));
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("2") != -1 &&
-      this.topic == "headache"
+      messageText.toLowerCase().search("3") != -1 ||
+      (messageText.toLowerCase().search("4") != -1 && this.topic == "headache")
     ) {
-      this.addBotMessage(
-        "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist."
-      );
-      this.topic = "";
-    } else if (
-      messageText.toLowerCase().search("3") != -1 &&
-      this.topic == "headache"
-    ) {
-      this.addBotMessage(
-        "Would you like to go to a hospital to get checked up?"
-      );
+      this.addBotMessage(i18n.t("headache24"));
     } else if (
       messageText.toLowerCase().search("yes") != -1 &&
       this.topic == "headache"
     ) {
-      this.addBotMessage("Hang on, looking for a hospital now...");
+      this.addBotMessage(i18n.t("headache24y"));
       this.getHospital();
       this.topic == "";
     } else if (
       messageText.toLowerCase().search("no") != -1 &&
       this.topic == "headache"
     ) {
-      this.addBotMessage(
-        "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist."
-      );
+      this.addBotMessage(i18n.t("headache24n"));
       this.topic == "";
     } else if (messageText.toLowerCase().search("5") != -1) {
-      this.addBotMessage(
-        "We recommend you to visit a hospital. Please wait while we search for one..."
-      );
+      this.addBotMessage(i18n.t("headache5"));
       this.getHospital();
       this.topic == "";
     } else if (messageText.toLowerCase().search("stroke") != -1) {
       this.topic = "stroke";
-      this.addBotMessage(
-        "Please immediately bring the person to a hospital. Hang on while we look for one..."
-      );
+      this.addBotMessage(i18n.t("stroke"));
       this.getHospital();
       this.topic = "";
-    } else if (messageText.toLowerCase().search("pink eye") != -1) {
+    } else if (
+      messageText.toLowerCase().search("pink eye") != -1 ||
+      messageText.toLowerCase().search("mata") != -1
+    ) {
       this.topic = "pink eye";
-      this.addBotMessage(
-        "A pink eye is not a serious emergency so don’t worry about it. Try to clean your eyelids with a wet cloth and apply warm/cold compresses several times daily. If you wear contacts, stop wearing them until the pink eye is cured. If you see no improvements, please go and see a doctor."
-      );
+      this.addBotMessage(i18n.t("pinkeye"));
       this.topic = "";
-    } else if (messageText.toLowerCase().search("choking") != -1) {
+    } else if (
+      messageText.toLowerCase().search("choking") != -1 ||
+      messageText.toLowerCase().search("tersedak") != -1 ||
+      messageText.toLowerCase().search("keselek") != -1
+    ) {
       this.topic = "choking";
-      this.addBotMessage(
-        "You must islodge the respiratory tract obstruction by bending the person's head and shoulders forward, or in the case of a small child, hold them upside down and thump the back hard, between the shoulder-blades. "
-      );
+      this.addBotMessage(i18n.t("choking"));
       this.topic = "";
-    } else if (messageText.toLowerCase().search("fracture") != -1) {
+    } else if (
+      messageText.toLowerCase().search("fracture") != -1 ||
+      messageText.toLowerCase().search("retak") != -1
+    ) {
       this.topic = "fracture";
-      this.addBotMessage("Please immediately bring the person to a hospital.");
+      this.addBotMessage(i18n.t("fracture"));
       this.getHospital();
       this.topic = "";
     } else if (messageText.toLowerCase().search("seizure") != -1) {
@@ -156,42 +153,42 @@ export default class ChatScreen extends React.Component {
       );
       this.getHospital();
       this.topic = "";
-    } else if (messageText.toLowerCase().search("fever") != -1) {
+    } else if (
+      messageText.toLowerCase().search("fever") != -1 ||
+      messageText.toLowerCase().search("demam") != -1 ||
+      messageText.toLowerCase().search("panas") != -1
+    ) {
       this.topic = "fever";
-      this.addBotMessage("On a scale of 1-3, how bad is your fever?");
+      this.addBotMessage(i18n.t("fever"));
     } else if (
       messageText.toLowerCase().search("1") != -1 &&
       this.topic == "fever"
     ) {
       this.topic = "fever";
-      this.addBotMessage(
-        "Continuously take your temperature and try to get some sleep. Remember to keep hydrated and stay cool."
-      );
+      this.addBotMessage(i18n.t("fever1"));
       this.topic = "";
     } else if (
       messageText.toLowerCase().search("2") != -1 &&
       this.topic == "fever"
     ) {
       this.topic = "fever";
-      this.addBotMessage(
-        "We recommend you to take over-the-counter medicine such as ibuprofen to reduce fever. Continuously take your temperature and try to get some sleep. Remember to keep hydrated and stay cool."
-      );
+      this.addBotMessage(i18n.t("fever2"));
       this.topic = "";
     } else if (
       messageText.toLowerCase().search("3") != -1 &&
       this.topic == "fever"
     ) {
       this.topic = "fever";
-      this.addBotMessage(
-        "We recommend you to go to a doctor. Please wait while we locate a hospital near you."
-      );
+      this.addBotMessage(i18n.t("fever3"));
       this.getHospital();
       this.topic = "";
-    } else if (messageText.toLowerCase().search("back pain") != -1) {
+    } else if (
+      messageText.toLowerCase().search("back pain") != -1 ||
+      messageText.toLowerCase().search("punggung") != -1 ||
+      messageText.toLowerCase().search("belakang") != -1
+    ) {
       this.topic = "back pain";
-      this.addBotMessage(
-        "Back pain can often be eased with home treatments, including icing or heating, strengthening exercises, light activity and over-the-counter medications for pain. If symptoms persist after a week or two of home care, we recommend you come in for a physician evaluation. "
-      );
+      this.addBotMessage(i18n.t("backpain"));
       this.topic = "";
     } else if (messageText.toLowerCase().search("nosebleed") != -1) {
       this.topic = "nosebleed";
@@ -199,29 +196,33 @@ export default class ChatScreen extends React.Component {
         "Sit down and firmly pinch the soft part of your nose, just above your nostrils, for at least 10-15 minutes. Remember to sit upright as it will lower blood pressure which will discourage further bleeding."
       );
       this.topic = "";
-    } else if (messageText.toLowerCase().search("diarrhea") != -1) {
+    } else if (
+      messageText.toLowerCase().search("diarrhea") != -1 ||
+      messageText.toLowerCase().search("diare") != -1
+    ) {
       this.topic = "diarrhea";
-      this.addBotMessage(
-        "Please drink a lot of water and eat a recovery diet such as bananas and cooked, soft vegetables. Try over-the-counter medicines too by visiting your local pharmacist."
-      );
+      this.addBotMessage(i18n.t("diarrhea"));
       this.topic = "";
-    } else if (messageText.toLowerCase().search("runny nose") != -1) {
+    } else if (
+      messageText.toLowerCase().search("runny nose") != -1 ||
+      messageText.toLowerCase().search("flu") != -1 ||
+      messageText.toLowerCase().search("ingus") != -1
+    ) {
       this.topic = "runny nose";
-      this.addBotMessage(
-        "Try placing a cool mist humidifier in the bedroom to help promote better sleep, keeping the nose clear."
-      );
+      this.addBotMessage(i18n.t("runnynose"));
       this.topic = "";
-    } else if (messageText.toLowerCase().search("itchy skin") != -1) {
+    } else if (
+      messageText.toLowerCase().search("itchy") != -1 ||
+      messageText.toLowerCase().search("gatel") != -1
+    ) {
       this.topic = "itchy skin";
-      this.addBotMessage("Is your skin turning red or swollen?");
+      this.addBotMessage(i18n.t("itchy"));
     } else if (
       messageText.toLowerCase().search("yes") != -1 &&
       this.topic == "itchy skin"
     ) {
       this.topic = "itchy skin";
-      this.addBotMessage(
-        "Please go and see a doctor. We are searching for the closest hospital now."
-      );
+      this.addBotMessage(i18n.t("itchyy"));
       this.getHospital();
       this.topic = "";
     } else if (
@@ -229,71 +230,70 @@ export default class ChatScreen extends React.Component {
       this.topic == "itchy skin"
     ) {
       this.topic = "itchy skin";
-      this.addBotMessage(
-        "This might be due to dust allergy. Try and move out of the place and compress your skin with cold water."
-      );
-      this.topic = "";
-    } else if (messageText.toLowerCase().search("sore throat") != -1) {
-      this.topic = "sore throat";
-      this.addBotMessage("What color is your phlegm?");
-    } else if (
-      messageText.toLowerCase().search("black") != -1 &&
-      this.topic == "sore throat"
-    ) {
-      this.topic = "sore throat";
-      this.addBotMessage(
-        "Black phlegm is most common among smokers. If you are one, please attempt to stop until your sore throat cures. If your phlegm is still black after a couple of days, please go and see a doctor."
-      );
+      this.addBotMessage(i18n.t("itchyn"));
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("green") != -1 &&
-      this.topic == "sore throat"
+      messageText.toLowerCase().search("throat") != -1 ||
+      messageText.toLowerCase().search("tenggorokan") != -1
     ) {
       this.topic = "sore throat";
-      this.addBotMessage(
-        "Green phlegm is a sign of infection. Please go see a doctor. We are looking for the closest hospital right now..."
-      );
+      this.addBotMessage(i18n.t("sorethroat"));
+    } else if (
+      messageText.toLowerCase().search("black") != -1 ||
+      (messageText.toLowerCase().search("hitam") != -1 &&
+        this.topic == "sore throat")
+    ) {
+      this.topic = "sore throat";
+      this.addBotMessage(i18n.t("sorethroatb"));
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("green") != -1 ||
+      (messageText.toLowerCase().search("hijau") != -1 &&
+        this.topic == "sore throat")
+    ) {
+      this.topic = "sore throat";
+      this.addBotMessage(i18n.t("sorethroatg"));
       this.getHospital();
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("yellow") != -1 &&
-      this.topic == "sore throat"
+      messageText.toLowerCase().search("yellow") != -1 ||
+      (messageText.toLowerCase().search("kuning") != -1 &&
+        this.topic == "sore throat")
     ) {
       this.topic = "sore throat";
-      this.addBotMessage(
-        "Yellow phlegm is a sign that your body is fighting an infection. Please go see a doctor before it gets worse. We are looking for the closest hospital right now…"
-      );
+      this.addBotMessage(i18n.t("sorethroaty"));
       this.getHospital();
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("white") != -1 &&
-      this.topic == "sore throat"
+      messageText.toLowerCase().search("white") != -1 ||
+      (messageText.toLowerCase().search("putih") != -1 &&
+        this.topic == "sore throat")
     ) {
       this.topic = "sore throat";
-      this.addBotMessage(
-        "White phlegm may lead to an infection. Please treat your sore throat with an  over-the-counter medicine to treat it before it gets worse."
-      );
+      this.addBotMessage(i18n.t("sorethroatw"));
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("red") != -1 &&
-      this.topic == "sore throat"
+      messageText.toLowerCase().search("red") != -1 ||
+      messageText.toLowerCase().search("merah") != -1 ||
+      (messageText.toLowerCase().search("darah") != -1 &&
+        this.topic == "sore throat")
     ) {
       this.topic = "sore throat";
-      this.addBotMessage(
-        "Phlegm with blood just means that you are dehydrated. Try and drink at least 8 glasses of water a day."
-      );
+      this.addBotMessage(i18n.t("sorethroatr"));
       this.topic = "";
-    } else if (messageText.toLowerCase().search("hard breathing") != -1) {
+    } else if (
+      messageText.toLowerCase().search("breath") != -1 ||
+      messageText.toLowerCase().search("nafas") != -1 ||
+      messageText.toLowerCase().search("napas") != -1
+    ) {
       this.topic = "hard breathing";
-      this.addBotMessage("Does your chest/lung hurt?");
+      this.addBotMessage(i18n.t("hardbreathing"));
     } else if (
       messageText.toLowerCase().search("yes") != -1 &&
       this.topic == "hard breathing"
     ) {
       this.topic = "hard breathing";
-      this.addBotMessage(
-        "Please go and see a doctor. We are searching for the closest one right now."
-      );
+      this.addBotMessage(i18n.t("hardbreathingy"));
       this.getHospital();
       this.topic = "";
     } else if (
@@ -301,9 +301,7 @@ export default class ChatScreen extends React.Component {
       this.topic == "hard breathing"
     ) {
       this.topic = "hard breathing";
-      this.addBotMessage(
-        "It might be due to the air pollution in Indonesia. Try and stay inside the house for a couple hours. If your lungs still hurt, we recommend you to go see a doctor."
-      );
+      this.addBotMessage(i18n.t("hardbreathingn"));
       this.topic = "";
     } else if (messageText.toLowerCase().search("thank you") != -1) {
       this.topic = "thank you";
