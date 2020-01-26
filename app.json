@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "BAPAT",
-    "slug": "BAPAT",
+    "slug": "emergency",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": ["ios", "android", "web"],
@@ -24,7 +24,8 @@
     },
     "android": {
       "package": "com.muliantomichael.BAPAT",
-      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+      "versionCode": 2
     },
     "description": ""
   }
