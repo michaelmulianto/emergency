@@ -1,6 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  ScrollView
+} from "react-native";
 import EmergencyView from "../components/EmergencyView";
 import i18n from "../components/Translation";
 

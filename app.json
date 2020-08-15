@@ -3,7 +3,7 @@
     "name": "BAPAT",
     "slug": "emergency",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
+    "sdkVersion": "38.0.0",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.1",
     "orientation": "portrait",

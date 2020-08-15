@@ -3,7 +3,7 @@ import { StyleSheet, Text, ImageBackground, Image } from "react-native";
 import { Container } from "native-base";
 import i18n from "../components/Translation";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {} from "react-native-gesture-handler";
 import * as firebase from "firebase";
 
 var firebaseConfig = {
