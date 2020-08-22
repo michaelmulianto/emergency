@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import { Container } from "native-base";
 import i18n from "../components/Translation";
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -14,14 +20,14 @@ var firebaseConfig = {
   storageBucket: "bapat-6e6a6.appspot.com",
   messagingSenderId: "950064821641",
   appId: "1:950064821641:web:5ed6c18714375d5bc0dd58",
-  measurementId: "G-1L9REWZTVV"
+  measurementId: "G-1L9REWZTVV",
 };
 
 firebase.initializeApp(firebaseConfig);
 
 export default class HomeScreen extends React.Component {
   state = {
-    showEmergency: false
+    showEmergency: false,
   };
   goToEmergency = () => {
     console.log("Go to emergency");
@@ -89,47 +95,47 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   cell: {
     backgroundColor: "white",
     margin: 10,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   cellButton: {
     backgroundColor: "pink",
     alignItems: "center",
     justifyContent: "center",
-    flex: 1
+    flex: 1,
   },
 
   grid: {
-    backgroundColor: "rgba(0,0,0,0.7)"
+    backgroundColor: "rgba(0,0,0,0.7)",
   },
 
   cellBackground: {
     width: "100%",
     height: "100%",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   Background: {
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   cellButton: {
     backgroundColor: "rgba(0,0,0,0.5)",
     alignItems: "center",
     justifyContent: "center",
-    height: "100%"
+    height: "100%",
   },
   cellIcon: {},
   cellText: {
     fontWeight: "bold",
-    color: "white"
+    color: "white",
   },
   logo: {
     height: "100%",
     width: "70%",
-    resizeMode: "contain"
-  }
+    resizeMode: "contain",
+  },
 });
