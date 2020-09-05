@@ -4,7 +4,7 @@ import {
   ScrollView,
   StyleSheet,
   ImageBackground,
-  Text
+  Text,
 } from "react-native";
 
 export default class EmergencyView extends React.Component {
@@ -17,7 +17,6 @@ export default class EmergencyView extends React.Component {
         <ImageBackground
           style={styles.cellBackground}
           imageStyle={styles.Background}
-          source={require("../assets/LOGO.png")}
         >
           <View style={styles.overlayBackground}></View>
         </ImageBackground>
@@ -36,19 +35,19 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 0,
   },
   Background: {
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   grid: {
-    flex: 1
+    flex: 1,
   },
   overlayBackground: {
     backgroundColor: "rgba(0,0,0,0.7)",
-    flex: 1
+    flex: 1,
   },
   outer: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

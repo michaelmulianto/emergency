@@ -7,14 +7,14 @@ import i18n from "../components/Translation";
 
 const user = {
   _id: 1,
-  name: "User"
+  name: "User",
 };
 
 const bot = {
   _id: 2,
   name: "Emergency Bot",
   avatar:
-    "https://www.unitedwaynems.org/wp-content/uploads/2014/03/Flag_of_the_Red_Cross.png"
+    "https://www.unitedwaynems.org/wp-content/uploads/2014/03/Flag_of_the_Red_Cross.png",
 };
 
 function compareLocationResults(a, b) {
@@ -26,7 +26,7 @@ function checkIsPlace(a) {
 }
 
 function uuidv4() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
@@ -35,22 +35,22 @@ function uuidv4() {
 
 export default class ChatScreen extends React.Component {
   state = {
-    messages: []
+    messages: [],
   };
 
   topic = "";
 
   getHospital() {
     navigator.geolocation.getCurrentPosition(
-      position => {
+      (position) => {
         let coords = position.coords;
         console.log(`Your latitude is ${coords.latitude}`);
         console.log(`Your longitude is ${coords.longitude}`);
         let mapQuery = `https://places.cit.api.here.com/places/v1/autosuggest?at=${coords.latitude},${coords.longitude}&q=hospital&app_id=N5nEvjSbDSCfxrJKR61D&app_code=kxwOsSQIVJ7X9J_D5ajC4Q`;
 
         fetch(mapQuery)
-          .then(response => response.json())
-          .then(responseJSON => {
+          .then((response) => response.json())
+          .then((responseJSON) => {
             let results = responseJSON.results
               .filter(checkIsPlace)
               .sort(compareLocationResults);
@@ -65,7 +65,7 @@ export default class ChatScreen extends React.Component {
             this.addBotMessage(botMessageText);
           });
       },
-      error => {
+      (error) => {
         console.log(error);
       },
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
@@ -97,7 +97,8 @@ export default class ChatScreen extends React.Component {
       this.addBotMessage(i18n.t("headache12"));
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("3") != -1 ||
+      (messageText.toLowerCase().search("3") != -1 &&
+        this.topic == "headache") ||
       (messageText.toLowerCase().search("4") != -1 && this.topic == "headache")
     ) {
       this.addBotMessage(i18n.t("headache24"));
@@ -129,6 +130,7 @@ export default class ChatScreen extends React.Component {
     ) {
       this.topic = "pink eye";
       this.addBotMessage(i18n.t("pinkeye"));
+      this.getHospital;
       this.topic = "";
     } else if (
       messageText.toLowerCase().search("choking") != -1 ||
@@ -202,6 +204,7 @@ export default class ChatScreen extends React.Component {
     ) {
       this.topic = "diarrhea";
       this.addBotMessage(i18n.t("diarrhea"));
+      this.getHospital();
       this.topic = "";
     } else if (
       messageText.toLowerCase().search("runny nose") != -1 ||
@@ -273,8 +276,10 @@ export default class ChatScreen extends React.Component {
       this.addBotMessage(i18n.t("sorethroatw"));
       this.topic = "";
     } else if (
-      messageText.toLowerCase().search("red") != -1 ||
-      messageText.toLowerCase().search("merah") != -1 ||
+      (messageText.toLowerCase().search("red") != -1 &&
+        this.topic == "sore throat") ||
+      (messageText.toLowerCase().search("merah") != -1 &&
+        this.topic == "sore throat") ||
       (messageText.toLowerCase().search("darah") != -1 &&
         this.topic == "sore throat")
     ) {
@@ -307,6 +312,105 @@ export default class ChatScreen extends React.Component {
       this.topic = "thank you";
       this.addBotMessage("Happy to help :)");
       this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("stomach") != -1 ||
+      messageText.toLowerCase().search("perut") != -1
+    ) {
+      this.topic = "stomach ache";
+      this.addBotMessage(i18n.t("stomachache"));
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("taste") != -1 ||
+      messageText.toLowerCase().search("smell") != -1 ||
+      messageText.toLowerCase().search("rasa") != -1 ||
+      messageText.toLowerCase().search("bau") != -1
+    ) {
+      this.topic = "losstastesmell";
+      this.addBotMessage(i18n.t("losstastesmell"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("chest") != -1 ||
+      messageText.toLowerCase().search("dada") != -1
+    ) {
+      this.topic = "chestpain";
+      this.addBotMessage(i18n.t("chestpain"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("cough") != -1 ||
+      messageText.toLowerCase().search("batuk") != -1
+    ) {
+      this.topic = "cough";
+      this.addBotMessage(i18n.t("cough"));
+    } else if (
+      (messageText.toLowerCase().search("yes") != -1 &&
+        this.topic == "cough") ||
+      (messageText.toLowerCase().search("ya") != -1 && this.topic == "cough")
+    ) {
+      this.addBotMessage(i18n.t("coughy"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      (messageText.toLowerCase().search("no") != -1 && this.topic == "cough") ||
+      (messageText.toLowerCase().search("tidak") != -1 && this.topic == "cough")
+    ) {
+      this.addBotMessage(i18n.t("coughn"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("move") != -1 ||
+      messageText.toLowerCase().search("speech") != -1 ||
+      messageText.toLowerCase().search("gerak") != -1 ||
+      messageText.toLowerCase().search("bicara") != -1 ||
+      messageText.toLowerCase().search("talk") != -1
+    ) {
+      this.addBotMessage(i18n.t("lossspeechmove"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("tired") != -1 ||
+      messageText.toLowerCase().search("weak") != -1 ||
+      messageText.toLowerCase().search("capai") != -1 ||
+      messageText.toLowerCase().search("lemes") != -1
+    ) {
+      this.addBotMessage(i18n.t("tired"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("ear") != -1 ||
+      messageText.toLowerCase().search("kuping") != -1 ||
+      messageText.toLowerCase().search("telinga") != -1
+    ) {
+      this.addBotMessage(i18n.t("earpain"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("dry") != -1 ||
+      messageText.toLowerCase().search("kering") != -1
+    ) {
+      this.addBotMessage(i18n.t("dryskin"));
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("color") != -1 ||
+      messageText.toLowerCase().search("colour") != -1 ||
+      messageText.toLowerCase().search("warna") != -1
+    ) {
+      this.addBotMessage(i18n.t("discolor"));
+      this.getHospital;
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("vomit") != -1 ||
+      messageText.toLowerCase().search("muntah") != -1
+    ) {
+      this.addBotMessage(i18n.t("vomit"));
+      this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("bit") != -1 ||
+      messageText.toLowerCase().search("gigit") != -1
+    ) {
+      this.addBotMessage(i18n.t("bite"));
+      this.topic = "";
     } else {
       this.topic = "no response";
       this.addBotMessage(
@@ -321,12 +425,12 @@ export default class ChatScreen extends React.Component {
       _id: uuidv4(),
       text: message,
       createdAt: new Date(),
-      user: bot
+      user: bot,
     };
 
     setTimeout(() => {
-      this.setState(previousState => ({
-        messages: GiftedChat.append(previousState.messages, botMessages)
+      this.setState((previousState) => ({
+        messages: GiftedChat.append(previousState.messages, botMessages),
       }));
     }, 1000);
   }
@@ -338,17 +442,17 @@ export default class ChatScreen extends React.Component {
           _id: 0,
           text: "Hello! How can I help you?",
           createdAt: new Date(),
-          user: bot
-        }
-      ]
+          user: bot,
+        },
+      ],
     });
   }
 
   onSend(messages = []) {
     //apppends message we type to message array
-    this.setState(previousState => ({
+    this.setState((previousState) => ({
       messages: GiftedChat.append(previousState.messages, messages),
-      currentId: uuidv4()
+      currentId: uuidv4(),
     }));
     let messageText = messages[0].text;
     this.processResponse(messageText);
@@ -359,7 +463,7 @@ export default class ChatScreen extends React.Component {
       <View style={{ flex: 1 }}>
         <GiftedChat
           messages={this.state.messages}
-          onSend={messages => this.onSend(messages)}
+          onSend={(messages) => this.onSend(messages)}
           user={user}
         />
         {Platform.OS === "android" && (
@@ -378,6 +482,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 });

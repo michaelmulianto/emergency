@@ -3,7 +3,7 @@ import i18n from "i18n-js";
 
 const langEn = {
   //home screen
-  Emer: "Emergency",
+  Emer: "Disaster",
   Chat: "Chat",
   no: "Pick Number",
 
@@ -92,6 +92,62 @@ const langEn = {
   v5:
     "Ash can damage machinery and metal parts, so avoid carrying transport vehicles. If you have to drive, stay under 56 kilometers per hour.",
 
+  //about covid screen
+  act: "About COVID-19:",
+  acb1:
+    "Coronaviruses (CoV) are a large family of viruses that cause illness ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV). A novel coronavirus (nCoV) is a new strain that has not been previously identified in humans.",
+  acb2:
+    "Coronaviruses are zoonotic, meaning they are transmitted between animals and people. Detailed investigations found that SARS-CoV was transmitted from civet cats to humans and MERS-CoV from dromedary camels to humans. Several known coronaviruses are circulating in animals that have not yet infected humans.",
+  acb3:
+    "Common signs of infection include respiratory symptoms, fever, cough, shortness of breath and breathing difficulties. In more severe cases, infection can cause pneumonia, severe acute respiratory syndrome, kidney failure and even death.",
+  acb4:
+    "Standard recommendations to prevent infection spread include regular hand washing, covering mouth and nose when coughing and sneezing, thoroughly cooking meat and eggs. Avoid close contact with anyone showing symptoms of respiratory illness such as coughing and sneezing.",
+  acs: "Source: World Health Organization",
+
+  //about bnpb screen
+  abt1: "About BNPB",
+  abb1:
+    "The National Agency for Disaster Countermeasure (Indonesian: Badan Nasional Penanggulangan Bencana; officially National Disaster Management Authority), abbreviated as BNPB, is the Indonesian board for natural disaster affairs. It was established in 2008 to replace the National Disaster Management Coordinating Board (Badan Koordinasi Nasional Penanggulangan Bencana or Bakornas PB). BNPB is directly responsible to the President of Indonesia and the chairman is directly appointed by the President.",
+  abt2: "VISION",
+  abb2: "• Nation resilience in facing disasters",
+  abt3: "MISSION",
+  abb3:
+    "1. To protect the nation from the threat of disasters by building a culture of disaster risk reduction and disaster preparedness becoming an integrated part of national development;",
+  abb4:
+    "2. Build a disaster emergency response system quickly, effectively and efficiently;",
+  abb5:
+    "3. Organizing post-disaster regional and community recovery through better coordinated rehabilitation and reconstruction with disaster risk reduction dimensions;",
+  abb6:
+    "4. Organizing support and governance of logistics and equipment for disaster management;",
+  abb7:
+    "5. Carrying out disaster management in a transparent manner with the principles of good governance.",
+  abt4: "DUTY",
+  abb8:
+    "1. Provide guidance and direction for disaster management efforts covering disaster prevention, disaster emergency response, rehabilitation and reconstruction in a fair and equal manner;",
+  abb9:
+    "2. Determining standardization and needs for disaster management based on statutory regulations;",
+  abb10:
+    "3. Delivering information on disaster management activities to the public;",
+  abb11:
+    "4. Reporting the implementation of disaster management to the President once a month in normal conditions and at any time in a state of disaster emergency;",
+  abb12:
+    "5. Using and being responsible for national and international donations / assistance;",
+  abb13:
+    "6. To account for the use of the budget received from the State Revenue and Expenditure Budget;",
+  abb14:
+    "7. Carry out other obligations in accordance with statutory regulations; and",
+  abb15:
+    "8. Prepare guidelines for the establishment of Regional Disaster Management Agencies.",
+  abt5: "FUNCTION",
+  abb16:
+    "1. Formulation and stipulation of policies for disaster management and handling of refugees by acting quickly and precisely as well as effectively and efficiently; and",
+  abb17:
+    "2. To coordinate the implementation of disaster management activities in a planned, integrated and comprehensive manner.",
+
+  //take action screen
+  noup:
+    "This page will be updated whenever the BNPB has critical news that the citizens should know about. You will receive a notification whenever an update is made to this page. Thank you for your understanding.",
+
   //chat bot responses
   hospital1: "Your nearest hospital is ",
   hospital2: ". Here is the link for directions: ",
@@ -105,11 +161,11 @@ const langEn = {
   headache24n:
     "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist.",
   headache5:
-    "We recommend you to visit a hospital. Please wait while we search for one...",
+    "Headache is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
   stroke:
     "Please immediately bring the person to a hospital. Hang on while we look for one...",
   pinkeye:
-    "A pink eye is not a serious emergency so don’t worry about it. Try to clean your eyelids with a wet cloth and apply warm/cold compresses several times daily. If you wear contacts, stop wearing them until the pink eye is cured. If you see no improvements, please go and see a doctor.",
+    "A pink eye is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
   choking:
     "You must islodge the respiratory tract obstruction by bending the person's head and shoulders forward, or in the case of a small child, hold them upside down and thump the back hard, between the shoulder-blades.",
   fracture:
@@ -120,11 +176,11 @@ const langEn = {
   fever2:
     "We recommend you to take over-the-counter medicine such as ibuprofen to reduce fever. Continuously take your temperature and try to get some sleep. Remember to keep hydrated and stay cool.",
   fever3:
-    "We recommend you to go to a doctor. Please wait while we locate a hospital near you.",
+    "Fever is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
   backpain:
     "Back pain can often be eased with home treatments, including icing or heating, strengthening exercises, light activity and over-the-counter medications for pain. If symptoms persist after a week or two of home care, we recommend you come in for a physician evaluation.",
   diarrhea:
-    "Please drink a lot of water and eat a recovery diet such as bananas and cooked, soft vegetables. Try over-the-counter medicines too by visiting your local pharmacist.",
+    "Diarrhea is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
   runnynose:
     "Try placing a cool mist humidifier in the bedroom to help promote better sleep, keeping the nose clear.",
   itchy: "Is your skin turning red or swollen?",
@@ -148,7 +204,32 @@ const langEn = {
     "Please go and see a doctor. We are searching for the closest one right now.",
   hardbreathingn:
     "It might be due to the air pollution in Indonesia. Try and stay inside the house for a couple hours. If your lungs still hurt, we recommend you to go see a doctor.",
-  thankyou: "Happy to help :)"
+  thankyou: "Happy to help :)",
+  stomachache:
+    "Place a hot water bottle or heated wheat bag on your stomach. Try using oils such as “minyak kayu putih” as well. If your stomach ache is not cured within 30 minutes, please go see a doctor as it is a symptom of COVID-19.",
+  losstastesmell:
+    "A loss of taste and/or smell is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number of the hospital closest to you...",
+  chestpain:
+    "Chest pain is a serious symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+  cough: "Is your cough dry?",
+  coughy:
+    "Dry cough is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+  coughn:
+    "Please drink lots of water and rest your body. If your coughing continues to get worse after a couple of days, please seek medical help.",
+  lossspeechmove:
+    "Loss of speech or movement is a serious symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+  tired:
+    "Tiredness is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+  earpain:
+    "This might be a sign of an ear infection. Please go see a doctor immediately. Here is the closest hospital to you.",
+  discolor:
+    "Discoloration of fingers or toes are a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+  dryskin:
+    "This is a sign of eczema. We recommend you to keep moisturizing and see a dermatologist for professional help.",
+  vomit:
+    "Try resting your stomach for an hour or two then introduce small amounts of clear fluids such as water. You should avoid dairy products and foods that are high in fiber. If vomiting continues, please go and see a doctor.",
+  bite:
+    "Please continue to wash your bitten part with soap and water for as long as 15 minutes and then apply an antibiotic cream. We also recommend you see a doctor as soon as possible.",
 };
 
 const langIn = {
@@ -159,7 +240,7 @@ const langIn = {
     "Tunggu sebentar, kami sedang mencari rumah sakit terdekat sekarang...",
 
   //home screen
-  Emer: "Darurat",
+  Emer: "Bencana",
   Chat: "Bot Obrolan",
   no: "Pilih Nomor Telpon",
 
@@ -246,6 +327,61 @@ const langIn = {
   v5:
     "Abu dapat merusak mesin dan bagian logam, jadi hindari membawa kendaraan transport. Jika anda harus mengemudi, tinggal di bawah 56 kilometer per jam.",
 
+  //about covid screen
+  act: "Tentang COVID-19 ",
+  acb1:
+    "Coronavirus (CoV) adalah keluarga besar virus yang menyebabkan penyakit mulai dari flu biasa hingga penyakit yang lebih parah seperti Middle East Respiratory Syndrome (MERS-CoV) dan Severe Acute Respiratory Syndrome (SARS-CoV). Virus corona baru (nCoV) adalah jenis baru yang belum pernah diidentifikasi sebelumnya pada manusia.",
+  acb2:
+    "Coronavirus bersifat zoonosis, artinya mereka ditularkan antara hewan dan manusia. Investigasi terperinci menemukan bahwa SARS-CoV ditularkan dari kucing musang ke manusia dan MERS-CoV dari unta dromedaris ke manusia.",
+  acb3:
+    "Beberapa virus corona yang diketahui beredar pada hewan yang belum menginfeksi manusia. Tanda-tanda umum infeksi termasuk gejala pernapasan, demam, batuk, sesak napas, dan kesulitan bernapas. Pada kasus yang lebih parah, infeksi dapat menyebabkan pneumonia, sindrom pernapasan akut yang parah, gagal ginjal, dan bahkan kematian.",
+  acb4:
+    "Rekomendasi standar untuk mencegah penyebaran infeksi termasuk mencuci tangan secara teratur, menutupi mulut dan hidung saat batuk dan bersin, memasak daging dan telur secara menyeluruh. Hindari kontak dekat dengan siapa pun yang menunjukkan gejala penyakit pernapasan seperti batuk dan bersin.",
+  acs: "Sumber: World Health Organization",
+
+  //about bnpb screen
+  abt1: "Tentang BNPB",
+  abb1:
+    "Badan Nasional Penanggulangan Bencana (Indonesia: Badan Nasional Penanggulangan Bencana; resmi Badan Nasional Penanggulangan Bencana), disingkat BNPB, adalah Badan Urusan Bencana Alam Indonesia. Itu didirikan pada tahun 2008 untuk menggantikan Badan Koordinasi Nasional Penanggulangan Bencana atau Bakornas PB. BNPB bertanggung jawab langsung kepada Presiden Indonesia dan ketuanya ditunjuk langsung oleh Presiden.",
+  abt2: "VISI",
+  abb2: "•	Ketangguhan bangsa dalam menghadapi bencana",
+  abt3: "MISI",
+  abb3:
+    "1.	Melindungi bangsa dari ancaman bencana dengan membangun budaya pengurangan risiko bencana dan kesiapsiagaan dalam menghadapi bencana menjadi bagian yang terintegrasi dalam pembangunan nasional;",
+  abb4:
+    "2.	Membangun sistem penanganan darurat bencana secara cepat, efektif dan efisien;",
+  abb5:
+    "3.	Menyelenggarakan pemulihan wilayah dan masyarakat pascabencana melalui rehabilitasi dan rekonstruksi yang lebih baik yang terkoordinasi dan berdimensi pengurangan risiko bencana;",
+  abb6:
+    "4.	Menyelenggarakan dukungan dan tata kelola logistik dan peralatan penanggulangan bencana;",
+  abb7:
+    "5.	Menyelenggarakan penanggulangan bencana secara transparan dengan prinsip good governance.",
+  abt4: "TUGAS",
+  abb8:
+    "1.	Memberikan pedoman dan pengarahan terhadap usaha penanggulangan bencana yang mencakup pencegahan bencana, penanganan keadaan darurat bencana, rehabilitasi, dan rekonstruksi secara adil dan setara;",
+  abb9:
+    "2.	Menetapkan standardisasi dan kebutuhan penyelenggaraan penanggulangan bencana berdasarkan peraturan perundang-undangan;",
+  abb10:
+    "3.	Menyampaikan informasi kegiatan penanggulangan bencana kepada masyarakat;",
+  abb11:
+    "4.	Melaporkan penyelenggaraan penanggulangan bencana kepada Presiden setiap sebulan sekali dalam kondisi normal dan setiap saat dalam kondisi darurat bencana;",
+  abb12:
+    "5.	Menggunakan dan mempertanggungjawabkan sumbangan/bantuan nasional dan internasional;",
+  abb13:
+    "6.	Mempertanggungjawabkan penggunaan anggaran yang diterima dari Anggaran Pendapatan dan Belanja Negara;",
+  abb14:
+    "7.	Melaksanakan kewajiban lain sesuai dengan peraturan perundang-undangan; dan",
+  abb15: "8.	Menyusun pedoman pembentukan Badan Penanggulangan Bencana Daerah.",
+  abt5: "FUNGSI",
+  abb16:
+    "1.	Perumusan dan penetapan kebijakan penanggulangan bencana dan penanganan pengungsi dengan bertindak cepat dan tepat serta efektif dan efisien; dan",
+  abb17:
+    "2.	Pengoordinasian pelaksanaan kegiatan penanggulangan bencana secara terencana, terpadu, dan menyeluruh.",
+
+  //take action screen
+  noup:
+    "Halaman ini akan diperbarui ketika BNPB memiliki berita kritis yang harus diketahui oleh warga. Anda akan menerima pemberitahuan setiap kali pembaruan dilakukan pada halaman ini. Terima kasih atas pengertian Anda.",
+
   //chat bot responses
   hospital1: "Rumah sakit terdekat anda adalah ",
   hospital2: ". Inilah tautan untuk arahnya: ",
@@ -260,11 +396,11 @@ const langIn = {
   headache24y: "Mohon menunggu saat kami mendeteksi rumah sakit terdekat...",
   headache24n: "Coba tidurkan diri.",
   headache5:
-    "Kami menyarankan anda untuk pergi ke dokter. Mohon menunggu saat kami mencarikan anda rumah sakit terdekat.",
+    "Sakit kepala adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
   stroke:
     "Tolong segera bawa orang itu ke rumah sakit. Mohon tunggu, kami sedang mencari rumah sakit terdekat.",
   pinkeye:
-    "Mata merah bukan keadaan darurat yang serius, jadi jangan khawatir. Coba membersihkan kelopak mata anda dengan kain basah dan kompres dengan air hangat / dingin beberapa kali sehari. Jika anda memakai kontak, berhentikan pemakainya sampai mata merahnya sembuh. Jika anda tidak melihat peningkatan, silakan kunjungi dokter.",
+    "Mata merah muda adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
   choking:
     "Anda harus menghindari sumbatan saluran pernapasan dengan menekuk kepala dan bahu orang yang tersedak ke depan. Jika yang tersedak adalah anak kecil, pegang dengan posisi terbalik dan benturkan bagian belakangnya dengan keras di antara tulang belikat.",
   fracture:
@@ -275,11 +411,11 @@ const langIn = {
   fever2:
     "Kami menyarankan Anda untuk minum obat ibuprofen untuk mengurangi demam. Terus mengukur suhu tubuh anda dan mencoba tidur. Ingatlah untuk tetap terhidrasi dan tetap tenang.",
   fever3:
-    "Kami menyarankan anda untuk pergi ke dokter. Mohon menunggu saat kami mencarikan anda rumah sakit terdekat.",
+    "Demam adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
   backpain:
     "Sakit  punggung seringkali dapat diredakan dengan perawatan di rumah, termasuk pemanasan, latihan penguatan, aktivitas ringan dan obat-obatan bebas untuk nyeri. Jika gejalanya menetap setelah satu atau dua minggu perawatan di rumah, kami sarankan anda pergi ke dokter untuk dievaluasi.",
   diarrhea:
-    "Minumlah banyak air dan makanlah diet pemulihan seperti pisang dan sayuran lunak yang dimasak. Coba juga obat bebas dengan mengunjungi apoteker setempat.",
+    "Diare adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
   runnynose:
     "Cobalah menempatkan pelembap kabut dingin di kamar tidur untuk membantu meningkatkan kualitas tidur, membuat hidung tetap jernih.",
   itchy: "Apakah kulit anda merah atau bengkak?",
@@ -302,7 +438,32 @@ const langIn = {
     "Silahkan pergi dan menemui dokter. Kami sedang mencari rumah sakit yang terdekat sekarang...",
   hardbreathingn:
     "Ini mungkin karena polusi udara di Indonesia. Cobalah tetap di dalam rumah selama beberapa jam. Jika paru-paru anda masih sakit, kami sarankan anda pergi ke dokter.",
-  thankyou: "Sama-sama! :)"
+  thankyou: "Sama-sama! :)",
+  stomachache:
+    "Letakkan botol air panas atau kantong gandum hangat di perut Anda. Coba gunakan juga minyak seperti minyak kayu putih. Jika sakit perut Anda tidak kunjung sembuh dalam waktu 30 menit, kunjungi dokter karena ini merupakan gejala COVID-19.",
+  losstastesmell:
+    "Kehilangan rasa dan / atau bau adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor rumah sakit terdekat dengan Anda...",
+  chestpain:
+    "Nyeri dada adalah gejala serius COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+  cough: "Apakah batuk Anda kering?",
+  coughy:
+    "Batuk kering adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut nomor dan lokasi rumah sakit terdekat dengan anda...",
+  coughn:
+    "Mohon minum banyak air dan istirahatkan tubuh Anda. Jika batuk Anda terus memburuk setelah beberapa hari, segera cari bantuan medis.",
+  lossspeechmove:
+    "Kehilangan kemampuan bicara atau bergerak adalah gejala serius COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+  tired:
+    "Kelelahan adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut nomor dan lokasi rumah sakit terdekat dengan anda ...",
+  earpain:
+    "Ini mungkin tanda infeksi telinga. Silakan segera pergi ke dokter. Ini rumah sakit terdekat dengan Anda.",
+  discolor:
+    "Perubahan warna pada jari tangan atau kaki adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut nomor dan lokasi rumah sakit terdekat dengan anda ...",
+  dryskin:
+    "Ini pertanda eksim. Kami menyarankan Anda untuk tetap melembabkan dan menemui dokter kulit untuk bantuan profesional.",
+  vomit:
+    "Cobalah mengistirahatkan perut Anda selama satu atau dua jam kemudian masukkan sedikit cairan bening seperti air. Anda harus menghindari produk susu dan makanan yang tinggi serat. Jika muntah berlanjut, silakan pergi dan temui dokter.",
+  bite:
+    "Lanjutkan mencuci bagian yang digigit dengan sabun dan air selama 15 menit, lalu oleskan krim antibiotik. Kami juga menganjurkan agar Anda menemui dokter sesegera mungkin.",
 };
 
 i18n.fallbacks = true;

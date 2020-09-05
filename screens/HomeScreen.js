@@ -5,12 +5,28 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
+  View,
+  Dimensions,
+  Alert,
 } from "react-native";
 import { Container } from "native-base";
 import i18n from "../components/Translation";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import {} from "react-native-gesture-handler";
 import * as firebase from "firebase";
+
+import { LinearGradient } from "expo-linear-gradient";
+
+import Carousel, { Pagination } from "react-native-snap-carousel"; // Version can be specified in package.json
+
+const SLIDER_WIDTH = Dimensions.get("window").width;
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 1);
+const ITEM_HEIGHT = Math.round((ITEM_WIDTH * 3) / 4);
+
+const DATA = [];
+for (let i = 0; i < 4; i++) {
+  DATA.push(i);
+}
 
 var firebaseConfig = {
   apiKey: "AIzaSyBWEaiAtk_zg7R1WOiapfiCqqm36b0Y88g",
@@ -29,15 +45,100 @@ export default class HomeScreen extends React.Component {
   state = {
     showEmergency: false,
   };
-  goToEmergency = () => {
-    console.log("Go to emergency");
-    this.props.navigation.navigate("Emergency");
+  goToDisaster = () => {
+    console.log("Go to Disaster");
+    this.props.navigation.navigate("Disaster");
   };
 
   goToChat = () => {
     console.log("Go to chat");
     this.props.navigation.navigate("Chat");
   };
+
+  goToCOVID = () => {
+    console.log("Go to COVID");
+    this.props.navigation.navigate("COVID");
+  };
+
+  goToBNPB = () => {
+    console.log("Go to BNPB");
+    this.props.navigation.navigate("BNPB");
+  };
+  goToEMERGENCYCALL = () => {
+    console.log("Go to emergencycall");
+    Alert.alert(
+      i18n.t("no"),
+      "",
+      [
+        {
+          text: "BNPB - +62 21 29827444",
+          onPress: () => {
+            console.log("+622129827444");
+            Linking.openURL("tel://+622129827444");
+          },
+        },
+
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel"),
+          style: "cancel",
+        },
+        {
+          text: "TNI - +62 21 84595576",
+          onPress: () => {
+            console.log("+622184595576");
+            Linking.openURL("tel://+622184595576");
+          },
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+
+  get pagination() {
+    const { entries, activeSlide } = this.state;
+    return (
+      <Pagination
+        dotsLength={DATA.length}
+        activeDotIndex={activeSlide}
+        containerStyle={{ backgroundColor: "rgba(0, 0, 0, 0.75)" }}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          marginHorizontal: 8,
+          backgroundColor: "rgba(255, 255, 255, 0.92)",
+        }}
+        inactiveDotStyle={{
+          width: 7,
+          height: 7,
+          borderRadius: 5,
+          marginHorizontal: 8,
+          backgroundColor: "rgba(255, 255, 255, 0.92)",
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      />
+    );
+  }
+
+  state = {
+    index: 0,
+  };
+
+  constructor(props) {
+    super(props);
+    this._renderItem = this._renderItem.bind(this);
+    this.renitem = this._renderItem.bind(this);
+  }
+
+  _renderItem({ item, index }) {
+    return (
+      <View style={styles.itemContainer}>
+        <Text style={styles.itemLabel}>{`Item ${item}`}</Text>
+      </View>
+    );
+  }
 
   render() {
     return (
@@ -48,7 +149,7 @@ export default class HomeScreen extends React.Component {
               <Text>energency text</Text>
             </Row>
           ) : null}
-          <Row style={{ flex: 3 }}>
+          <Row style={{ flex: 11 }}>
             <Col style={{ justifyContent: "center", alignItems: "center" }}>
               <Image
                 style={styles.logo}
@@ -56,14 +157,44 @@ export default class HomeScreen extends React.Component {
               ></Image>
             </Col>
           </Row>
-          <Row style={{ flex: 8 }}>
+          <Row style={{ flex: 6 }}>
+            <Col style={styles.cell}>
+              <ImageBackground
+                style={styles.cellBackground}
+                source={require("../assets/COVID.jpg")}
+              >
+                <TouchableOpacity
+                  onPress={this.goToCOVID}
+                  style={styles.cellButton}
+                >
+                  <View>
+                    <Text style={styles.cellText}>COVID</Text>
+                  </View>
+                </TouchableOpacity>
+              </ImageBackground>
+            </Col>
             <Col style={styles.cell}>
               <ImageBackground
                 style={styles.cellBackground}
                 source={require("../assets/LOGO.png")}
               >
                 <TouchableOpacity
-                  onPress={this.goToEmergency}
+                  onPress={this.goToBNPB}
+                  style={styles.cellButton}
+                >
+                  <Text style={styles.cellText}>BNPB</Text>
+                </TouchableOpacity>
+              </ImageBackground>
+            </Col>
+          </Row>
+          <Row style={{ flex: 6 }}>
+            <Col style={styles.cell}>
+              <ImageBackground
+                style={styles.cellBackground}
+                source={require("../assets/Disaster.jpg")}
+              >
+                <TouchableOpacity
+                  onPress={this.goToDisaster}
                   style={styles.cellButton}
                 >
                   <Text style={styles.cellText}>{i18n.t("Emer")}</Text>
@@ -83,6 +214,34 @@ export default class HomeScreen extends React.Component {
                 </TouchableOpacity>
               </ImageBackground>
             </Col>
+          </Row>
+          <Row style={{ flex: 6 }}>
+            <Col style={styles.cell}>
+              <ImageBackground
+                style={styles.cellBackground}
+                source={require("../assets/CallButton.png")}
+              >
+                <TouchableOpacity
+                  onPress={this.goToEMERGENCYCALL}
+                  style={styles.cellButton}
+                >
+                  <Text style={styles.cellText}>{i18n.t("Call")}</Text>
+                </TouchableOpacity>
+              </ImageBackground>
+            </Col>
+            <Col style={styles.cell}>
+              <ImageBackground style={styles.cellBackground}>
+                <TouchableOpacity style={styles.cellButtoncs}>
+                  <Text style={styles.cellText}>Coming soon...</Text>
+                </TouchableOpacity>
+              </ImageBackground>
+            </Col>
+          </Row>
+
+          <Row style={{ flex: 4 }}>
+            <Col
+              style={{ justifyContent: "center", alignItems: "center" }}
+            ></Col>
           </Row>
         </Grid>
       </Container>
@@ -111,7 +270,7 @@ const styles = StyleSheet.create({
   },
 
   grid: {
-    backgroundColor: "rgba(0,0,0,0.7)",
+    backgroundColor: "rgba(0,0,0,0)",
   },
 
   cellBackground: {
@@ -123,7 +282,14 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   cellButton: {
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0.2)",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    borderRadius: 10,
+  },
+  cellButtoncs: {
+    backgroundColor: "rgba(0,0,0,0.8)",
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
@@ -137,5 +303,32 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "70%",
     resizeMode: "contain",
+  },
+  carouselContainer: {
+    marginTop: 0,
+  },
+  itemContainer: {
+    width: ITEM_WIDTH,
+    height: ITEM_HEIGHT,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "black",
+  },
+  itemLabel: {
+    color: "white",
+    fontSize: 24,
+  },
+
+  circleGradient: {
+    backgroundColor: "white",
+    borderRadius: 5,
+  },
+  visit: {
+    margin: 4,
+    paddingHorizontal: 6,
+    textAlign: "center",
+    backgroundColor: "white",
+    color: "#008f68",
+    fontSize: 12,
   },
 });

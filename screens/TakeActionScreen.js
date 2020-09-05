@@ -1,21 +1,32 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import EmergencyView from "../components/EmergencyView";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Alert,
+  Linking,
+  ImageBackground,
+} from "react-native";
+import { Container, Header } from "native-base";
+import { Col, Row, Grid } from "react-native-easy-grid";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import i18n from "../components/Translation";
 
-export default class ForestFireScreen extends React.Component {
+export default class TakeActionScreen extends React.Component {
   render() {
     return (
-      <EmergencyView>
-        <Text style={[styles.text, styles.title]}>{i18n.t("fft")}</Text>
-        <Image style={styles.image} source={require("../assets/Forestf.png")} />
-        <View style={styles.card}>
-          <Text style={styles.text}>{i18n.t("ff1")}</Text>
-          <Text style={styles.text}>{i18n.t("ff2")}</Text>
-          <Text style={styles.text}>{i18n.t("ff3")}</Text>
-          <Text style={styles.text}>{i18n.t("ff4")}</Text>
-        </View>
-      </EmergencyView>
+      <Container>
+        <Grid style={styles.grid}>
+          <Row style={{ flex: 1 }}></Row>
+          <Row style={{ flex: 0.77 }}>
+            <View style={styles.card}>
+              <Text style={styles.text}></Text>
+              <Text style={styles.text}>{i18n.t("noup")}</Text>
+            </View>
+          </Row>
+          <Row style={{ flex: 1 }}></Row>
+        </Grid>
+      </Container>
     );
   }
 }
@@ -49,7 +60,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: null,
-    height: 140,
+    height: 233,
     resizeMode: "contain",
     margin: 10,
   },

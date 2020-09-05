@@ -1,21 +1,34 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import EmergencyView from "../components/EmergencyView";
+import {
+  StyleSheet,
+  Text,
+  Alert,
+  Linking,
+  ImageBackground,
+  View,
+  ScrollView,
+} from "react-native";
 import i18n from "../components/Translation";
 
-export default class ForestFireScreen extends React.Component {
+export default class AboutCOVIDScreen extends React.Component {
   render() {
     return (
-      <EmergencyView>
-        <Text style={[styles.text, styles.title]}>{i18n.t("fft")}</Text>
-        <Image style={styles.image} source={require("../assets/Forestf.png")} />
+      <ScrollView>
+        <View style={styles.grid}>{this.props.children}</View>
+
         <View style={styles.card}>
-          <Text style={styles.text}>{i18n.t("ff1")}</Text>
-          <Text style={styles.text}>{i18n.t("ff2")}</Text>
-          <Text style={styles.text}>{i18n.t("ff3")}</Text>
-          <Text style={styles.text}>{i18n.t("ff4")}</Text>
+          <Text style={styles.title}>{i18n.t("act")}</Text>
+          <Text style={styles.text}>{i18n.t("acb1")}</Text>
+          <Text style={styles.text}> </Text>
+          <Text style={styles.text}>{i18n.t("acb2")}</Text>
+          <Text style={styles.text}> </Text>
+          <Text style={styles.text}>{i18n.t("acb3")}</Text>
+          <Text style={styles.text}> </Text>
+          <Text style={styles.text}>{i18n.t("acb4")}</Text>
+          <Text style={styles.text}> </Text>
+          <Text style={styles.source}>{i18n.t("acs")}</Text>
         </View>
-      </EmergencyView>
+      </ScrollView>
     );
   }
 }
@@ -31,25 +44,30 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "rgba(255, 255, 255, 0.5)",
     borderRadius: 5,
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 10 },
-    backgroundColor: "rgba(255,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0)",
     margin: 10,
   },
   text: {
-    color: "white",
+    color: "black",
     paddingLeft: 10,
     paddingRight: 10,
     fontSize: 20,
   },
+  source: {
+    color: "black",
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontSize: 10,
+  },
   title: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: "bold",
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   image: {
     width: null,
-    height: 140,
+    height: 233,
     resizeMode: "contain",
     margin: 10,
   },
