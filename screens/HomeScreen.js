@@ -14,6 +14,7 @@ import i18n from "../components/Translation";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import {} from "react-native-gesture-handler";
 import * as firebase from "firebase";
+import CarouselWithPagination from "./CarouselWithPagination";
 
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -95,51 +96,6 @@ export default class HomeScreen extends React.Component {
     );
   };
 
-  get pagination() {
-    const { entries, activeSlide } = this.state;
-    return (
-      <Pagination
-        dotsLength={DATA.length}
-        activeDotIndex={activeSlide}
-        containerStyle={{ backgroundColor: "rgba(0, 0, 0, 0.75)" }}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          marginHorizontal: 8,
-          backgroundColor: "rgba(255, 255, 255, 0.92)",
-        }}
-        inactiveDotStyle={{
-          width: 7,
-          height: 7,
-          borderRadius: 5,
-          marginHorizontal: 8,
-          backgroundColor: "rgba(255, 255, 255, 0.92)",
-        }}
-        inactiveDotOpacity={0.4}
-        inactiveDotScale={0.6}
-      />
-    );
-  }
-
-  state = {
-    index: 0,
-  };
-
-  constructor(props) {
-    super(props);
-    this._renderItem = this._renderItem.bind(this);
-    this.renitem = this._renderItem.bind(this);
-  }
-
-  _renderItem({ item, index }) {
-    return (
-      <View style={styles.itemContainer}>
-        <Text style={styles.itemLabel}>{`Item ${item}`}</Text>
-      </View>
-    );
-  }
-
   render() {
     return (
       <Container>
@@ -151,10 +107,7 @@ export default class HomeScreen extends React.Component {
           ) : null}
           <Row style={{ flex: 11 }}>
             <Col style={{ justifyContent: "center", alignItems: "center" }}>
-              <Image
-                style={styles.logo}
-                source={require("../assets/BAPAT.png")}
-              ></Image>
+              <CarouselWithPagination></CarouselWithPagination>
             </Col>
           </Row>
           <Row style={{ flex: 6 }}>
