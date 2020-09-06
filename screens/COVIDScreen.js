@@ -30,6 +30,7 @@ export default class COVIDScreen extends React.Component {
 
   getCOVIDStats() {
     let statUpdate = "";
+    let count = 0;
     let stats = "https://api.covid19api.com/total/country/indonesia";
 
     fetch(stats)
@@ -37,7 +38,15 @@ export default class COVIDScreen extends React.Component {
       .then((responseJSON) => {
         console.log("getting data", responseJSON);
 
-        let mostRecent = responseJSON[0];
+        let mostRecent = responseJSON[count];
+        do {
+          if (responseJSON[count] != null) {
+            count++;
+          }
+        } while (responseJSON[count] != null);
+        count--;
+        mostRecent = responseJSON[count];
+
         statUpdate =
           "Confirmed Cases: " +
           mostRecent.Confirmed +
@@ -47,6 +56,7 @@ export default class COVIDScreen extends React.Component {
           mostRecent.Recovered +
           "Active: " +
           mostRecent.Active;
+        console.log(statUpdate);
 
         return statUpdate;
       });

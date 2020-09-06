@@ -25,6 +25,10 @@ const DATA = [
     title: "something2",
     picture: "Disaster.jpg",
   },
+  {
+    title: "something3",
+    picture: "Disaster.jpg",
+  },
 ];
 
 export default class CarouselWithPagination extends Component {
