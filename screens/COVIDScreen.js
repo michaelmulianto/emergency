@@ -28,6 +28,30 @@ export default class COVIDScreen extends React.Component {
     this.props.navigation.navigate("SymptomChecker");
   };
 
+  getCOVIDStats() {
+    let statUpdate = "";
+    let stats = "https://api.covid19api.com/total/country/indonesia";
+
+    fetch(stats)
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        console.log("getting data", responseJSON);
+
+        let mostRecent = responseJSON[0];
+        statUpdate =
+          "Confirmed Cases: " +
+          mostRecent.Confirmed +
+          "Deaths: " +
+          mostRecent.Deaths +
+          "Recovered: " +
+          mostRecent.Recovered +
+          "Active: " +
+          mostRecent.Active;
+
+        return statUpdate;
+      });
+  }
+
   render() {
     console.log(JSON.stringify(i18n));
     return (
@@ -62,9 +86,7 @@ export default class COVIDScreen extends React.Component {
             <Col style={{ flex: 7 }}>
               <Row style={styles.cell3}>
                 <TouchableOpacity style={styles.cellButton}>
-                  <Text style={styles.cellText}>
-                    Live COVID Stats -wont be button-
-                  </Text>
+                  <Text style={styles.cellText}>{this.getCOVIDStats()}</Text>
                 </TouchableOpacity>
               </Row>
               <Row style={styles.cell4}>

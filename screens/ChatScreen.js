@@ -57,6 +57,7 @@ export default class ChatScreen extends React.Component {
             console.log(results);
 
             let nearest = results[0];
+            console.log(nearest);
             botMessageText =
               i18n.t("hospital1") +
               nearest.title +
