@@ -19,15 +19,15 @@ const ITEM_HEIGHT = Math.round((ITEM_WIDTH * 2) / 4);
 const DATA = [
   {
     title: "something",
-    picture: "LOGO.png",
+    picture: require("../assets/LOGO.png"),
   },
   {
     title: "something2",
-    picture: "Disaster.jpg",
+    picture: require("../assets/Disaster.jpg"),
   },
   {
     title: "something3",
-    picture: "Disaster.jpg",
+    picture: require("../assets/Disaster.jpg"),
   },
 ];
 
@@ -46,7 +46,12 @@ export default class CarouselWithPagination extends Component {
       <Pagination
         dotsLength={DATA.length}
         activeDotIndex={index}
-        containerStyle={{ backgroundColor: "rgba(0, 0, 0, 1)" }}
+        containerStyle={{
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          paddingTop: 10,
+          paddingBottom: 10,
+          marginTop: -28,
+        }}
         dotStyle={{
           width: 8,
           height: 8,
@@ -68,6 +73,7 @@ export default class CarouselWithPagination extends Component {
   }
 
   _renderItem({ item, index }) {
+    console.log(item.picture);
     return (
       <View style={styles.itemContainer}>
         <ImageBackground
@@ -105,19 +111,17 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   itemContainer: {
-    width: ITEM_WIDTH,
+    flex: 1,
     height: ITEM_HEIGHT,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(0, 0, 0, 1)",
+    flexDirection: "column",
   },
   itemLabel: {
     color: "white",
     fontSize: 24,
   },
   cellBackground: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
     justifyContent: "center",
+    resizeMode: "cover",
   },
 });

@@ -34,7 +34,6 @@ export default class COVIDScreen extends React.Component {
     let statUpdate = "";
     let count = 0;
     let stats = "https://api.covid19api.com/total/country/indonesia";
-    this.setState({ covidStats: statUpdate });
 
     fetch(stats)
       .then((response) => response.json())
@@ -60,7 +59,7 @@ export default class COVIDScreen extends React.Component {
           "\nActive: " +
           mostRecent.Active;
         console.log(statUpdate);
-        covidStats = statUpdate;
+        this.setState({ covidStats: statUpdate });
       });
   }
 
@@ -102,7 +101,11 @@ export default class COVIDScreen extends React.Component {
             <Col style={{ flex: 7 }}>
               <Row style={styles.cell3}>
                 <View style={styles.card}>
-                  <Text style={styles.cellText}>{this.state.covidStats}</Text>
+                  <Text style={styles.cellText}>
+                    {this.state.covidStats == ""
+                      ? "Loading... "
+                      : this.state.covidStats}
+                  </Text>
                 </View>
               </Row>
               <Row style={styles.cell4}>
