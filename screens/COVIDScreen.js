@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,6 +6,7 @@ import {
   Linking,
   ImageBackground,
   Image,
+  View,
 } from "react-native";
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -28,10 +29,12 @@ export default class COVIDScreen extends React.Component {
     this.props.navigation.navigate("SymptomChecker");
   };
 
+  state = { covidStats: "" };
   getCOVIDStats() {
     let statUpdate = "";
     let count = 0;
     let stats = "https://api.covid19api.com/total/country/indonesia";
+    this.setState({ covidStats: statUpdate });
 
     fetch(stats)
       .then((response) => response.json())
@@ -50,16 +53,19 @@ export default class COVIDScreen extends React.Component {
         statUpdate =
           "Confirmed Cases: " +
           mostRecent.Confirmed +
-          "Deaths: " +
+          "\nDeaths: " +
           mostRecent.Deaths +
-          "Recovered: " +
+          "\nRecovered: " +
           mostRecent.Recovered +
-          "Active: " +
+          "\nActive: " +
           mostRecent.Active;
         console.log(statUpdate);
-
-        return statUpdate;
+        covidStats = statUpdate;
       });
+  }
+
+  componentDidMount() {
+    this.getCOVIDStats();
   }
 
   render() {
@@ -95,9 +101,9 @@ export default class COVIDScreen extends React.Component {
 
             <Col style={{ flex: 7 }}>
               <Row style={styles.cell3}>
-                <TouchableOpacity style={styles.cellButton}>
-                  <Text style={styles.cellText}>{this.getCOVIDStats()}</Text>
-                </TouchableOpacity>
+                <View style={styles.card}>
+                  <Text style={styles.cellText}>{this.state.covidStats}</Text>
+                </View>
               </Row>
               <Row style={styles.cell4}>
                 <TouchableOpacity style={styles.cellButton}>
@@ -163,5 +169,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     borderRadius: 15,
+  },
+  card: {
+    borderWidth: 2,
+    borderColor: "rgba(255, 255, 255, 0.5)",
+    borderRadius: 5,
+    shadowOpacity: 1,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 10 },
+    backgroundColor: "rgba(255,0,0,0.5)",
+    margin: 10,
   },
 });

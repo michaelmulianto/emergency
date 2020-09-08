@@ -18,7 +18,7 @@ export default class TakeActionScreen extends React.Component {
       <Container>
         <Grid style={styles.grid}>
           <Row style={{ flex: 1 }}></Row>
-          <Row style={{ flex: 0.77 }}>
+          <Row style={{ flex: 1 }}>
             <View style={styles.card}>
               <Text style={styles.text}></Text>
               <Text style={styles.text}>{i18n.t("noup")}</Text>
