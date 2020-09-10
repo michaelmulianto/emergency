@@ -101,85 +101,102 @@ export default class HomeScreen extends React.Component {
               <CarouselWithPagination></CarouselWithPagination>
             </Col>
           </Row>
+
           <Row style={{ flex: 6 }}>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/COVID.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToCOVID}
-                  style={styles.cellButton}
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/1.png")}
                 >
-                  <View>
-                    <Text style={styles.cellText}>COVID</Text>
-                  </View>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/LOGO.png")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToBNPB}
-                  style={styles.cellButton}
+                  <TouchableOpacity
+                    onPress={this.goToCOVID}
+                    style={styles.cellButton}
+                  >
+                    <View>
+                      <Text style={styles.cellText}>COVID</Text>
+                    </View>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/BNPBb.png")}
                 >
-                  <Text style={styles.cellText}>BNPB</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
+                  <TouchableOpacity
+                    onPress={this.goToBNPB}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>BNPB</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
+          </Row>
+
+          <Row style={{ flex: 6 }}>
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/3.png")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToDisaster}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Emer")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/chatb.png")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToChat}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>Chat</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
           </Row>
           <Row style={{ flex: 6 }}>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/Disaster.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToDisaster}
-                  style={styles.cellButton}
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/4.png")}
                 >
-                  <Text style={styles.cellText}>{i18n.t("Emer")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/chat.png")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToChat}
-                  style={styles.cellButton}
+                  <TouchableOpacity
+                    onPress={this.goToEMERGENCYCALL}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Call")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/coming.png")}
                 >
-                  <Text style={styles.cellText}>Chat</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-          </Row>
-          <Row style={{ flex: 6 }}>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/CallButton.png")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToEMERGENCYCALL}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>{i18n.t("Call")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-            <Col style={styles.cell}>
-              <ImageBackground style={styles.cellBackground}>
-                <TouchableOpacity style={styles.cellButtoncs}>
-                  <Text style={styles.cellText}>Coming soon...</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
+                  <TouchableOpacity style={styles.cellButton}>
+                    <Text style={styles.cellText}>Coming soon...</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
           </Row>
 
           <Row style={{ flex: 0 }}>
@@ -226,22 +243,17 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   cellButton: {
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(0,0,0,0.1)",
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
     borderRadius: 10,
   },
-  cellButtoncs: {
-    backgroundColor: "rgba(0,0,0,0.8)",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-  },
   cellIcon: {},
   cellText: {
     fontWeight: "bold",
-    color: "white",
+    color: "black",
+    fontSize: 13,
   },
   logo: {
     height: "100%",
@@ -274,5 +286,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     color: "#008f68",
     fontSize: 12,
+  },
+  overlayBackground: {
+    backgroundColor: "rgba(246,245,220,100)",
+    flex: 1,
   },
 });

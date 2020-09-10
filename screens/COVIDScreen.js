@@ -50,14 +50,15 @@ export default class COVIDScreen extends React.Component {
         mostRecent = responseJSON[count];
 
         statUpdate =
-          "Confirmed Cases: " +
+          "\nConfirmed: " +
           mostRecent.Confirmed +
           "\nDeaths: " +
           mostRecent.Deaths +
           "\nRecovered: " +
           mostRecent.Recovered +
           "\nActive: " +
-          mostRecent.Active;
+          mostRecent.Active +
+          "\n";
         console.log(statUpdate);
         this.setState({ covidStats: statUpdate });
       });
@@ -109,7 +110,10 @@ export default class COVIDScreen extends React.Component {
                 </View>
               </Row>
               <Row style={styles.cell4}>
-                <TouchableOpacity style={styles.cellButton}>
+                <TouchableOpacity
+                  onPress={this.goToSymptomChecker}
+                  style={styles.cellButton}
+                >
                   <Text style={styles.cellText}>Symptom Checker</Text>
                 </TouchableOpacity>
               </Row>
@@ -179,7 +183,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     shadowOpacity: 1,
     shadowRadius: 10,
-    shadowOffset: { width: 0, height: 10 },
+    shadowOffset: { width: 0, height: 5 },
     backgroundColor: "rgba(255,0,0,0.5)",
     margin: 10,
   },

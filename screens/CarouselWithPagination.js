@@ -19,15 +19,15 @@ const ITEM_HEIGHT = Math.round((ITEM_WIDTH * 2) / 4);
 const DATA = [
   {
     title: "something",
-    picture: require("../assets/LOGO.png"),
+    picture: require("../assets/poster.png"),
   },
   {
     title: "something2",
-    picture: require("../assets/Disaster.jpg"),
+    picture: require("../assets/masker.png"),
   },
   {
     title: "something3",
-    picture: require("../assets/Disaster.jpg"),
+    picture: require("../assets/selamat.png"),
   },
 ];
 

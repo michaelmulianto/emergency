@@ -13,22 +13,28 @@ import i18n from "../components/Translation";
 export default class AboutCOVIDScreen extends React.Component {
   render() {
     return (
-      <ScrollView>
-        <View style={styles.grid}>{this.props.children}</View>
+      <View style={styles.outer}>
+        <ScrollView>
+          <View style={styles.grid}>{this.props.children}</View>
 
-        <View style={styles.card}>
-          <Text style={styles.title}>{i18n.t("act")}</Text>
-          <Text style={styles.text}>{i18n.t("acb1")}</Text>
-          <Text style={styles.text}> </Text>
-          <Text style={styles.text}>{i18n.t("acb2")}</Text>
-          <Text style={styles.text}> </Text>
-          <Text style={styles.text}>{i18n.t("acb3")}</Text>
-          <Text style={styles.text}> </Text>
-          <Text style={styles.text}>{i18n.t("acb4")}</Text>
-          <Text style={styles.text}> </Text>
-          <Text style={styles.source}>{i18n.t("acs")}</Text>
-        </View>
-      </ScrollView>
+          <View style={styles.card}>
+            <Text style={styles.title}>{i18n.t("act")}</Text>
+            <Text style={styles.text}>{i18n.t("acb1")}</Text>
+            <Text style={styles.text}> </Text>
+            <Text style={styles.text}>{i18n.t("acb2")}</Text>
+            <Text style={styles.text}> </Text>
+            <Text style={styles.text}>{i18n.t("acb3")}</Text>
+            <Text style={styles.text}> </Text>
+            <Text style={styles.text}>{i18n.t("acb4")}</Text>
+            <Text style={styles.text}> </Text>
+            <Text style={styles.source}>{i18n.t("acs")}</Text>
+          </View>
+        </ScrollView>
+        <ImageBackground
+          style={styles.cellBackground}
+          source={require("../assets/AboutCOV.png")}
+        ></ImageBackground>
+      </View>
     );
   }
 }
@@ -102,5 +108,8 @@ const styles = StyleSheet.create({
   cellText2: {
     color: "white",
     fontSize: 20,
+  },
+  outer: {
+    flex: 1,
   },
 });

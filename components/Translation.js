@@ -230,6 +230,21 @@ const langEn = {
     "Try resting your stomach for an hour or two then introduce small amounts of clear fluids such as water. You should avoid dairy products and foods that are high in fiber. If vomiting continues, please go and see a doctor.",
   bite:
     "Please continue to wash your bitten part with soap and water for as long as 15 minutes and then apply an antibiotic cream. We also recommend you see a doctor as soon as possible.",
+
+  //survey buttons
+  most1: "Fever",
+  most2: "Dry Cough",
+  most3: "Tiredness",
+  less1: "Aches and Pains",
+  less2: "Sore Throat",
+  less3: "Diarrhea",
+  less4: "Conjunctivitis",
+  less5: "Headache",
+  less6: "Lost of Taste or Smell",
+  less7: "Rash/Skin Discoloration",
+  serious1: "Difficult Breathing",
+  serious2: "Chest Pain/Pressure",
+  serious3: "Loss of Speech or Movement",
 };
 
 const langIn = {
