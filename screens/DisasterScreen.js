@@ -5,6 +5,7 @@ import {
   Alert,
   Linking,
   ImageBackground,
+  View,
 } from "react-native";
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -78,89 +79,98 @@ export default class DisasterScreen extends React.Component {
     return (
       <Container>
         <Grid style={styles.grid}>
+          <View style={styles.overlayBackground}>
+            <Row>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/flood.png")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToFlood}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Flood")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/earthquake.png")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToEarthquake}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Earthquake")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </Row>
+          </View>
+          <View style={styles.overlayBackground}>
+            <Row>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/tsunami.png")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToTsunami}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Tsunami")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/typhoon.png")}
+                >
+                  <TouchableOpacity
+                    onPress={this.goToTyphoon}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Typhoon")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </Row>
+          </View>
+
           <Row>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/Flood.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToFlood}
-                  style={styles.cellButton}
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/forest.png")}
                 >
-                  <Text style={styles.cellText}>{i18n.t("Flood")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/Earthquake.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToEarthquake}
-                  style={styles.cellButton}
+                  <TouchableOpacity
+                    onPress={this.goToForestFire}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("ForestF")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
+            <View style={styles.overlayBackground}>
+              <Col style={styles.cell}>
+                <ImageBackground
+                  style={styles.cellBackground}
+                  source={require("../assets/volcano.png")}
                 >
-                  <Text style={styles.cellText}>{i18n.t("Earthquake")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-          </Row>
-          <Row>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/Tsunami.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToTsunami}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>{i18n.t("Tsunami")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/Typhoon.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToTyphoon}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>{i18n.t("Typhoon")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-          </Row>
-          <Row>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/ForestFire.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToForestFire}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>{i18n.t("ForestF")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
-            <Col style={styles.cell}>
-              <ImageBackground
-                style={styles.cellBackground}
-                source={require("../assets/VolcanicEruption.jpg")}
-              >
-                <TouchableOpacity
-                  onPress={this.goToVolcanicEruption}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>{i18n.t("Volcano")}</Text>
-                </TouchableOpacity>
-              </ImageBackground>
-            </Col>
+                  <TouchableOpacity
+                    onPress={this.goToVolcanicEruption}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>{i18n.t("Volcano")}</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
+              </Col>
+            </View>
           </Row>
         </Grid>
       </Container>
@@ -202,7 +212,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   cellButton: {
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(0,0,0,0.1)",
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
@@ -212,5 +222,9 @@ const styles = StyleSheet.create({
   cellText: {
     fontWeight: "bold",
     color: "white",
+  },
+  overlayBackground: {
+    backgroundColor: "rgba(246,245,220,100)",
+    flex: 1,
   },
 });

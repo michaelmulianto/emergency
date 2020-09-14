@@ -48,13 +48,97 @@ export default class SymptomCheckerScreen extends React.Component {
       this.state.most2 == true ||
       this.state.most3 == true
     ) {
-      most += most1;
-      //create array [most1, most2, most3]
-      //for loop if [i] is true most += [i]
+      most += "\nMost Common:\n";
+      let arr1 = [this.state.most1, this.state.most2, this.state.most3];
+      let arr2 = [i18n.t("most1"), i18n.t("most2"), i18n.t("most3")];
+      for (let i = 0; i <= arr1.length; i++) {
+        if (arr1[i] == true) {
+          most += arr2[i];
+          most += "\n";
+        }
+      }
     }
-    //if statement repeated for less and serious
 
-    total = most + less + serious;
+    if (
+      this.state.less1 == true ||
+      this.state.less2 == true ||
+      this.state.less3 == true ||
+      this.state.less4 == true ||
+      this.state.less5 == true ||
+      this.state.less6 == true ||
+      this.state.less7 == true
+    ) {
+      less += "\nLess Common:\n";
+      let arr3 = [
+        this.state.less1,
+        this.state.less2,
+        this.state.less3,
+        this.state.less4,
+        this.state.less5,
+        this.state.less6,
+        this.state.less7,
+      ];
+      let arr4 = [
+        i18n.t("less1"),
+        i18n.t("less2"),
+        i18n.t("less3"),
+        i18n.t("less4"),
+        i18n.t("less5"),
+        i18n.t("less6"),
+        i18n.t("less7"),
+      ];
+      for (let j = 0; j <= arr3.length; j++) {
+        if (arr3[j] == true) {
+          less += arr4[j];
+          less += "\n";
+        }
+      }
+    }
+
+    if (
+      this.state.serious1 == true ||
+      this.state.serious2 == true ||
+      this.state.serious3 == true
+    ) {
+      serious += "\nSerious:\n";
+      let arr5 = [
+        this.state.serious1,
+        this.state.serious2,
+        this.state.serious3,
+      ];
+      let arr6 = [i18n.t("serious1"), i18n.t("serious2"), i18n.t("serious3")];
+      for (let i = 0; i <= arr5.length; i++) {
+        if (arr5[i] == true) {
+          serious += arr6[i];
+          serious += "\n";
+        }
+      }
+    }
+
+    let sum1 = "";
+    if (serious != "") {
+      sum1 =
+        "One or more of the symptoms you are experiencing is extremely serious. We highly highly recommend you to go to the hospital as soon as possible. Please ask our chat bot for directions.";
+    } else if (less != "") {
+      sum1 =
+        "You do not have any serious symptoms. However, you do have less common ones. We advice you to adhere to a 14 day stay at home quarantine. If you are still experiencing these symptoms, please go and see a doctor.";
+    } else if (most != "") {
+      sum1 =
+        "The symptoms you selected are very common symptoms of COVID-19. Please adhere to a 14 day stay at home quarantine and call your doctor for advice. We recommend you to take lots of vitamins and antioxidants to help fight the virus";
+    }
+
+    if (serious == "" && less == "" && most == "") {
+      total =
+        "You have not selected any symptoms; therefore, we are unable to assess your situation. Please select the symptoms you are experiencing and submit the survey again.";
+    } else {
+      total =
+        "Here is the list of symptoms you selected categorised.\n" +
+        most +
+        less +
+        serious +
+        "\n" +
+        sum1;
+    }
 
     this.setState({ finalSummary: total });
   }
@@ -348,7 +432,7 @@ export default class SymptomCheckerScreen extends React.Component {
                   style={styles.openButton}
                   onPress={() => {
                     this.setModalVisible(true);
-                    this.getSummary;
+                    this.getSummary();
                   }}
                 >
                   <Text style={styles.textStyle}>SUBMIT</Text>

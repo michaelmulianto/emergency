@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   cellBackground: {
-    flex: 1,
+    flex: 0.9,
     justifyContent: "center",
     resizeMode: "cover",
   },

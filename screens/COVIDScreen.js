@@ -85,12 +85,14 @@ export default class COVIDScreen extends React.Component {
           <Row style={{ flex: 7 }}>
             <Col style={{ flex: 7 }}>
               <Row style={styles.cell1}>
-                <TouchableOpacity
-                  onPress={this.goToAboutCOVID}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>About COVID-19</Text>
-                </TouchableOpacity>
+                <ImageBackground>
+                  <TouchableOpacity
+                    onPress={this.goToAboutCOVID}
+                    style={styles.cellButton}
+                  >
+                    <Text style={styles.cellText}>About COVID-19</Text>
+                  </TouchableOpacity>
+                </ImageBackground>
               </Row>
               <Row style={styles.cell2}>
                 <TouchableOpacity style={styles.cellButton}>
@@ -101,13 +103,13 @@ export default class COVIDScreen extends React.Component {
 
             <Col style={{ flex: 7 }}>
               <Row style={styles.cell3}>
-                <View style={styles.card}>
+                <TouchableOpacity style={styles.cellButton}>
                   <Text style={styles.cellText}>
                     {this.state.covidStats == ""
                       ? "Loading... "
                       : this.state.covidStats}
                   </Text>
-                </View>
+                </TouchableOpacity>
               </Row>
               <Row style={styles.cell4}>
                 <TouchableOpacity

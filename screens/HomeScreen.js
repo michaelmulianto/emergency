@@ -107,7 +107,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/1.png")}
+                  source={require("../assets/covid.png")}
                 >
                   <TouchableOpacity
                     onPress={this.goToCOVID}
@@ -124,7 +124,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/BNPBb.png")}
+                  source={require("../assets/bnpb.png")}
                 >
                   <TouchableOpacity
                     onPress={this.goToBNPB}
@@ -142,7 +142,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/3.png")}
+                  source={require("../assets/disaster.png")}
                 >
                   <TouchableOpacity
                     onPress={this.goToDisaster}
@@ -157,7 +157,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/chatb.png")}
+                  source={require("../assets/chat.png")}
                 >
                   <TouchableOpacity
                     onPress={this.goToChat}
@@ -174,7 +174,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/4.png")}
+                  source={require("../assets/emergencycall.png")}
                 >
                   <TouchableOpacity
                     onPress={this.goToEMERGENCYCALL}
@@ -189,7 +189,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/coming.png")}
+                  source={require("../assets/comingsoon.png")}
                 >
                   <TouchableOpacity style={styles.cellButton}>
                     <Text style={styles.cellText}>Coming soon...</Text>
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     justifyContent: "center",
+    flex: 1,
   },
   Background: {
     resizeMode: "contain",
