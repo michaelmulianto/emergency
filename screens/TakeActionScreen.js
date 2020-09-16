@@ -13,6 +13,24 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import i18n from "../components/Translation";
 
 export default class TakeActionScreen extends React.Component {
+  state = { finalUpdate: "" };
+  getInfo() {
+    let update = "https://michaelmulianto.github.io/BNPBUpdate/update.json";
+    let current = "";
+    fetch(update)
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        console.log(responseJSON);
+        current = responseJSON.TakeActionUpdate;
+        console.log(current);
+
+        this.setState({ finalUpdate: current });
+      });
+  }
+
+  componentDidMount() {
+    this.getInfo();
+  }
   render() {
     return (
       <Container>
@@ -21,7 +39,7 @@ export default class TakeActionScreen extends React.Component {
           <Row style={{ flex: 1 }}>
             <View style={styles.card}>
               <Text style={styles.text}></Text>
-              <Text style={styles.text}>{i18n.t("noup")}</Text>
+              <Text style={styles.text}>{this.state.finalUpdate}</Text>
             </View>
           </Row>
           <Row style={{ flex: 1 }}></Row>

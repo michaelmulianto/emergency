@@ -107,6 +107,7 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
+                  imageStyle={styles.imageCellBackground}
                   source={require("../assets/covid.png")}
                 >
                   <TouchableOpacity
@@ -125,6 +126,7 @@ export default class HomeScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/bnpb.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToBNPB}
@@ -143,6 +145,7 @@ export default class HomeScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/disaster.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToDisaster}
@@ -158,6 +161,7 @@ export default class HomeScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/chat.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToChat}
@@ -175,6 +179,7 @@ export default class HomeScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/emergencycall.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToEMERGENCYCALL}
@@ -190,6 +195,7 @@ export default class HomeScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/comingsoon.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity style={styles.cellButton}>
                     <Text style={styles.cellText}>Coming soon...</Text>
@@ -218,10 +224,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cell: {
-    backgroundColor: "white",
     margin: 10,
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 15,
   },
   cellButton: {
     backgroundColor: "pink",
@@ -233,7 +239,9 @@ const styles = StyleSheet.create({
   grid: {
     backgroundColor: "rgba(0,0,0,0)",
   },
-
+  imageCellBackground: {
+    borderRadius: 15,
+  },
   cellBackground: {
     width: "100%",
     height: "100%",
@@ -248,7 +256,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
-    borderRadius: 10,
+    borderRadius: 15,
   },
   cellIcon: {},
   cellText: {

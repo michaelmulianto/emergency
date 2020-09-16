@@ -8,6 +8,7 @@ import {
   View,
   Modal,
   TouchableHighlight,
+  ScrollView,
 } from "react-native";
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -151,297 +152,247 @@ export default class SymptomCheckerScreen extends React.Component {
     console.log(JSON.stringify(i18n));
     const { modalVisible } = this.state;
     return (
-      <Container>
-        <Grid style={styles.grid}>
-          <Row style={{ flex: 0.15 }}>
-            <View style={styles.card}>
-              <Text style={styles.text}>
-                Please select the sicknesses that you are currently
-                experiencing.
-              </Text>
-            </View>
-          </Row>
+      <ScrollView>
+        <View style={styles.card}>
+          <Text style={styles.text}>
+            Please select the sicknesses that you are currently experiencing.
+          </Text>
+        </View>
 
-          <Col>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ most1: !this.state.most1 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.most1
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("most1")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ most2: !this.state.most2 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.most2
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("most2")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ most3: !this.state.most3 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.most3
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("most3")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less1: !this.state.less1 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less1
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less1")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less2: !this.state.less2 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less2
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less2")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less3: !this.state.less3 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less3
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less3")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less4: !this.state.less4 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less4
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less4")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less5: !this.state.less5 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less5
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less5")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less6: !this.state.less6 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less6
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less6")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ less7: !this.state.less7 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.less7
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("less7")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ serious1: !this.state.serious1 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.serious1
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("serious1")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ serious2: !this.state.serious2 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.serious2
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("serious2")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ serious3: !this.state.serious3 });
-                }}
-                style={styles.cellButton}
-              >
-                <Text
-                  style={
-                    this.state.serious3
-                      ? styles.cellButtonOff
-                      : styles.cellButtonOn
-                  }
-                >
-                  {i18n.t("serious3")}
-                </Text>
-              </TouchableOpacity>
-            </Row>
-            <Row style={{ flex: 2 }}>
-              <View style={styles.centeredView}>
-                <Modal
-                  animationType="slide"
-                  transparent={true}
-                  visible={modalVisible}
-                  onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
-                  }}
-                >
-                  <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                      <Text style={styles.modalText}>
-                        {this.state.finalSummary}
-                      </Text>
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ most1: !this.state.most1 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.most1 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("most1")}
+          </Text>
+        </TouchableOpacity>
 
-                      <TouchableHighlight
-                        style={{
-                          ...styles.openButton,
-                          backgroundColor: "#2196F3",
-                        }}
-                        onPress={() => {
-                          this.setModalVisible(!modalVisible);
-                        }}
-                      >
-                        <Text style={styles.textStyle}>Hide Report</Text>
-                      </TouchableHighlight>
-                    </View>
-                  </View>
-                </Modal>
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ most2: !this.state.most2 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.most2 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("most2")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ most3: !this.state.most3 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.most3 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("most3")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less1: !this.state.less1 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less1 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less1")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less2: !this.state.less2 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less2 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less2")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less3: !this.state.less3 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less3 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less3")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less4: !this.state.less4 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less4 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less4")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less5: !this.state.less5 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less5 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less5")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less6: !this.state.less6 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less6 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less6")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ less7: !this.state.less7 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.less7 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("less7")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ serious1: !this.state.serious1 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.serious1 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("serious1")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ serious2: !this.state.serious2 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.serious2 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("serious2")}
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            this.setState({ serious3: !this.state.serious3 });
+          }}
+          style={styles.cellButton}
+        >
+          <Text
+            style={
+              this.state.serious3 ? styles.cellButtonOff : styles.cellButtonOn
+            }
+          >
+            {i18n.t("serious3")}
+          </Text>
+        </TouchableOpacity>
+
+        <View style={styles.centeredView}>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>{this.state.finalSummary}</Text>
 
                 <TouchableHighlight
-                  style={styles.openButton}
+                  style={{
+                    ...styles.openButton,
+                    backgroundColor: "#2196F3",
+                  }}
                   onPress={() => {
-                    this.setModalVisible(true);
-                    this.getSummary();
+                    this.setModalVisible(!modalVisible);
                   }}
                 >
-                  <Text style={styles.textStyle}>SUBMIT</Text>
+                  <Text style={styles.textStyle}>Hide Report</Text>
                 </TouchableHighlight>
               </View>
-            </Row>
-          </Col>
-        </Grid>
-      </Container>
+            </View>
+          </Modal>
+
+          <TouchableHighlight
+            style={styles.openButton}
+            onPress={() => {
+              this.setModalVisible(true);
+              this.getSummary();
+            }}
+          >
+            <Text style={styles.textStyle}>SUBMIT</Text>
+          </TouchableHighlight>
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -460,17 +411,17 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
     borderRadius: 0,
+    height: 40,
     borderWidth: 2,
     borderColor: "rgba(0, 0, 0, 1)",
     margin: 3,
   },
   cellButtonOn: {
     backgroundColor: "white",
-    alignItems: "center",
+    textAlign: "center",
     justifyContent: "center",
-    flex: 1,
+    width: "100%",
     borderRadius: 0,
     borderWidth: 2,
     borderColor: "rgba(0, 0, 0, 0)",
@@ -478,9 +429,9 @@ const styles = StyleSheet.create({
   },
   cellButtonOff: {
     backgroundColor: "#32CD32",
-    alignItems: "center",
+    textAlign: "center",
     justifyContent: "center",
-    flex: 1,
+    width: "100%",
     borderRadius: 15,
     borderWidth: 2,
     borderColor: "rgba(0, 0, 0, 0)",
@@ -542,7 +493,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   openButton: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "#2196F3",
     borderRadius: 20,
     padding: 10,
     elevation: 2,

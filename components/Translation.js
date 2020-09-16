@@ -144,10 +144,6 @@ const langEn = {
   abb17:
     "2. To coordinate the implementation of disaster management activities in a planned, integrated and comprehensive manner.",
 
-  //take action screen
-  noup:
-    "This page will be updated whenever the BNPB has critical news that the citizens should know about. You will receive a notification whenever an update is made to this page. Thank you for your understanding.",
-
   //chat bot responses
   hospital1: "Your nearest hospital is ",
   hospital2: ". Here is the link for directions: ",

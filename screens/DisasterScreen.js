@@ -85,6 +85,7 @@ export default class DisasterScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/flood.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToFlood}
@@ -98,6 +99,7 @@ export default class DisasterScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/earthquake.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToEarthquake}
@@ -115,6 +117,7 @@ export default class DisasterScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/tsunami.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToTsunami}
@@ -128,6 +131,7 @@ export default class DisasterScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/typhoon.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToTyphoon}
@@ -146,6 +150,7 @@ export default class DisasterScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/forest.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToForestFire}
@@ -161,6 +166,7 @@ export default class DisasterScreen extends React.Component {
                 <ImageBackground
                   style={styles.cellBackground}
                   source={require("../assets/volcano.png")}
+                  imageStyle={styles.imageCellBackground}
                 >
                   <TouchableOpacity
                     onPress={this.goToVolcanicEruption}
@@ -187,7 +193,6 @@ const styles = StyleSheet.create({
   },
 
   cell: {
-    backgroundColor: "yellow",
     margin: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -201,6 +206,10 @@ const styles = StyleSheet.create({
 
   grid: {
     backgroundColor: "rgba(0,0,0,0)",
+  },
+
+  imageCellBackground: {
+    borderRadius: 20,
   },
 
   cellBackground: {

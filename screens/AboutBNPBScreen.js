@@ -51,8 +51,11 @@ export default class AboutBNPBScreen extends React.Component {
         </ScrollView>
         <ImageBackground
           style={styles.cellBackground}
-          source={require("../assets/orange.png")}
-        ></ImageBackground>
+          imageStyle={styles.Background}
+          source={require("../assets/LOGO.png")}
+        >
+          <View style={styles.overlayBackground}></View>
+        </ImageBackground>
       </View>
     );
   }
@@ -76,7 +79,7 @@ const styles = StyleSheet.create({
     color: "black",
     paddingLeft: 10,
     paddingRight: 10,
-    fontSize: 20,
+    fontSize: 18,
   },
   source: {
     color: "black",
@@ -85,6 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   title: {
+    color: "black",
     fontSize: 25,
     fontWeight: "bold",
     paddingLeft: 10,
@@ -129,6 +133,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   outer: {
+    flex: 1,
+  },
+  overlayBackground: {
+    backgroundColor: "rgba(220,220,220,0.8)",
     flex: 1,
   },
 });

@@ -72,56 +72,80 @@ export default class COVIDScreen extends React.Component {
     console.log(JSON.stringify(i18n));
     return (
       <Container>
-        <Grid style={styles.grid}>
-          <Row style={{ flex: 4 }}>
-            <Col style={{ justifyContent: "center", alignItems: "center" }}>
-              <Image
-                style={styles.logo}
-                source={require("../assets/SampleCOVIDGraph.png")}
-              ></Image>
-            </Col>
-          </Row>
+        <View style={styles.overlayBackground}>
+          <Grid style={styles.grid}>
+            <Row style={{ flex: 4 }}>
+              <Col style={{ justifyContent: "center", alignItems: "center" }}>
+                <Image
+                  style={styles.logo}
+                  source={require("../assets/SampleCOVIDGraph.png")}
+                ></Image>
+              </Col>
+            </Row>
 
-          <Row style={{ flex: 7 }}>
-            <Col style={{ flex: 7 }}>
-              <Row style={styles.cell1}>
-                <ImageBackground>
-                  <TouchableOpacity
-                    onPress={this.goToAboutCOVID}
-                    style={styles.cellButton}
+            <Row style={{ flex: 7 }}>
+              <Col style={{ flex: 7 }}>
+                <Row style={styles.cell1}>
+                  <ImageBackground
+                    style={styles.cellBackground}
+                    source={require("../assets/aboutCOVID.png")}
+                    imageStyle={styles.imageCellBackground}
                   >
-                    <Text style={styles.cellText}>About COVID-19</Text>
-                  </TouchableOpacity>
-                </ImageBackground>
-              </Row>
-              <Row style={styles.cell2}>
-                <TouchableOpacity style={styles.cellButton}>
-                  <Text style={styles.cellText}>COVID News</Text>
-                </TouchableOpacity>
-              </Row>
-            </Col>
+                    <TouchableOpacity
+                      onPress={this.goToAboutCOVID}
+                      style={styles.cellButton}
+                    >
+                      <Text style={styles.cellText}>About COVID-19</Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
+                </Row>
+                <Row style={styles.cell2}>
+                  <ImageBackground
+                    style={styles.cellBackground}
+                    source={require("../assets/News.png")}
+                    imageStyle={styles.imageCellBackground}
+                  >
+                    <TouchableOpacity style={styles.cellButton}>
+                      <Text style={styles.cellText}>COVID News</Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
+                </Row>
+              </Col>
 
-            <Col style={{ flex: 7 }}>
-              <Row style={styles.cell3}>
-                <TouchableOpacity style={styles.cellButton}>
-                  <Text style={styles.cellText}>
-                    {this.state.covidStats == ""
-                      ? "Loading... "
-                      : this.state.covidStats}
-                  </Text>
-                </TouchableOpacity>
-              </Row>
-              <Row style={styles.cell4}>
-                <TouchableOpacity
-                  onPress={this.goToSymptomChecker}
-                  style={styles.cellButton}
-                >
-                  <Text style={styles.cellText}>Symptom Checker</Text>
-                </TouchableOpacity>
-              </Row>
-            </Col>
-          </Row>
-        </Grid>
+              <Col style={{ flex: 7 }}>
+                <Row style={styles.cell3}>
+                  <ImageBackground
+                    style={styles.cellBackground}
+                    source={require("../assets/counter.png")}
+                    imageStyle={styles.imageCellBackground}
+                  >
+                    <TouchableOpacity style={styles.cellButton}>
+                      <Text style={styles.cellText}>
+                        {this.state.covidStats == ""
+                          ? "Loading... "
+                          : this.state.covidStats}
+                      </Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
+                </Row>
+                <Row style={styles.cell4}>
+                  <ImageBackground
+                    style={styles.cellBackground}
+                    source={require("../assets/symptom.png")}
+                    imageStyle={styles.imageCellBackground}
+                  >
+                    <TouchableOpacity
+                      onPress={this.goToSymptomChecker}
+                      style={styles.cellButton}
+                    >
+                      <Text style={styles.cellText}>Symptom Checker</Text>
+                    </TouchableOpacity>
+                  </ImageBackground>
+                </Row>
+              </Col>
+            </Row>
+          </Grid>
+        </View>
       </Container>
     );
   }
@@ -148,14 +172,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: "60%",
-    width: "100%",
+    width: "90%",
   },
   cell2: {
     backgroundColor: "white",
     margin: 10,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
+    width: "90%",
   },
   cell3: {
     backgroundColor: "white",
@@ -173,10 +197,14 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   cellButton: {
-    backgroundColor: "pink",
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
+    height: "100%",
+    width: "100%",
+    borderRadius: 15,
+  },
+  imageCellBackground: {
     borderRadius: 15,
   },
   card: {
@@ -188,5 +216,20 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 5 },
     backgroundColor: "rgba(255,0,0,0.5)",
     margin: 10,
+  },
+  cellBackground: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    flex: 1,
+  },
+  overlayBackground: {
+    backgroundColor: "rgba(246,245,220,100)",
+    flex: 1,
+  },
+  cellText: {
+    fontWeight: "bold",
+    color: "black",
+    fontSize: 13,
   },
 });
