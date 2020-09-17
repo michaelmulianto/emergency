@@ -154,16 +154,20 @@ export default class SymptomCheckerScreen extends React.Component {
     return (
       <ScrollView>
         <View style={styles.card}>
+          <Text style={styles.text}></Text>
+
           <Text style={styles.text}>
             Please select the sicknesses that you are currently experiencing.
           </Text>
+          <Text style={styles.text}></Text>
+          <Text style={styles.text}></Text>
         </View>
 
         <TouchableOpacity
           onPress={() => {
             this.setState({ most1: !this.state.most1 });
           }}
-          style={styles.cellButton}
+          style={this.state.most1 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -178,7 +182,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ most2: !this.state.most2 });
           }}
-          style={styles.cellButton}
+          style={this.state.most2 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -193,7 +197,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ most3: !this.state.most3 });
           }}
-          style={styles.cellButton}
+          style={this.state.most3 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -208,7 +212,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less1: !this.state.less1 });
           }}
-          style={styles.cellButton}
+          style={this.state.less1 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -223,7 +227,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less2: !this.state.less2 });
           }}
-          style={styles.cellButton}
+          style={this.state.less2 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -238,7 +242,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less3: !this.state.less3 });
           }}
-          style={styles.cellButton}
+          style={this.state.less3 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -253,7 +257,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less4: !this.state.less4 });
           }}
-          style={styles.cellButton}
+          style={this.state.less4 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -268,7 +272,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less5: !this.state.less5 });
           }}
-          style={styles.cellButton}
+          style={this.state.less5 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -283,7 +287,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less6: !this.state.less6 });
           }}
-          style={styles.cellButton}
+          style={this.state.less6 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -298,7 +302,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ less7: !this.state.less7 });
           }}
-          style={styles.cellButton}
+          style={this.state.less7 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -313,7 +317,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ serious1: !this.state.serious1 });
           }}
-          style={styles.cellButton}
+          style={this.state.serious1 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -328,7 +332,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ serious2: !this.state.serious2 });
           }}
-          style={styles.cellButton}
+          style={this.state.serious2 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -343,7 +347,7 @@ export default class SymptomCheckerScreen extends React.Component {
           onPress={() => {
             this.setState({ serious3: !this.state.serious3 });
           }}
-          style={styles.cellButton}
+          style={this.state.serious3 ? styles.cellButton2 : styles.cellButton}
         >
           <Text
             style={
@@ -392,6 +396,10 @@ export default class SymptomCheckerScreen extends React.Component {
             <Text style={styles.textStyle}>SUBMIT</Text>
           </TouchableHighlight>
         </View>
+        <View style={styles.card}>
+          <Text style={styles.text}></Text>
+          <Text style={styles.text}></Text>
+        </View>
       </ScrollView>
     );
   }
@@ -411,11 +419,22 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 0,
-    height: 40,
+    borderRadius: 10,
+    height: 60,
     borderWidth: 2,
-    borderColor: "rgba(0, 0, 0, 1)",
+    borderColor: "#D4D4D4",
     margin: 3,
+  },
+  cellButton2: {
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 0,
+    height: 60,
+    borderWidth: 2,
+    borderColor: "#2edfff",
+    margin: 3,
+    borderRadius: 10,
   },
   cellButtonOn: {
     backgroundColor: "white",
@@ -428,7 +447,7 @@ const styles = StyleSheet.create({
     margin: 3,
   },
   cellButtonOff: {
-    backgroundColor: "#32CD32",
+    backgroundColor: "white",
     textAlign: "center",
     justifyContent: "center",
     width: "100%",
@@ -436,6 +455,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "rgba(0, 0, 0, 0)",
     margin: 3,
+    color: "#2edfff",
   },
   cell: {
     backgroundColor: "white",
@@ -445,18 +465,19 @@ const styles = StyleSheet.create({
   },
   card: {
     borderWidth: 2,
-    borderColor: "rgba(0, 0, 0, 0.5)",
+    borderColor: "rgba(0, 0, 0, 0)",
     borderRadius: 0,
     shadowOpacity: 0,
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 5 },
     backgroundColor: "rgba(0,0,0,0)",
-    margin: 10,
+    margin: 0,
   },
   text: {
     paddingLeft: 10,
     paddingRight: 10,
-    fontSize: 20,
+    fontSize: 30,
+    fontWeight: "bold",
   },
   cell1: {
     backgroundColor: "white",

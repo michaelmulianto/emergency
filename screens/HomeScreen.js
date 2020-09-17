@@ -56,6 +56,10 @@ export default class HomeScreen extends React.Component {
     console.log("Go to BNPB");
     this.props.navigation.navigate("BNPB");
   };
+  goToNearestHospital = () => {
+    console.log("Go to nearesthospital");
+    this.props.navigation.navigate("NearestHospital");
+  };
   goToEMERGENCYCALL = () => {
     console.log("Go to emergencycall");
     Alert.alert(
@@ -194,11 +198,14 @@ export default class HomeScreen extends React.Component {
               <Col style={styles.cell}>
                 <ImageBackground
                   style={styles.cellBackground}
-                  source={require("../assets/comingsoon.png")}
+                  source={require("../assets/nearest.png")}
                   imageStyle={styles.imageCellBackground}
                 >
-                  <TouchableOpacity style={styles.cellButton}>
-                    <Text style={styles.cellText}>Coming soon...</Text>
+                  <TouchableOpacity
+                    style={styles.cellButton}
+                    onPress={this.goToNearestHospital}
+                  >
+                    <Text style={styles.cellText}>Nearest Hospital</Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>

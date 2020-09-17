@@ -19,6 +19,7 @@ import BNPBScreen from "./BNPBScreen";
 import AboutBNPBScreen from "./AboutBNPBScreen";
 import BNPBNewsScreen from "./BNPBNewsScreen";
 import TakeActionScreen from "./TakeActionScreen";
+import NeareastHospitalScreen from "./NearestHospitalScreen";
 
 export default createAppContainer(
   createStackNavigator({
@@ -145,6 +146,13 @@ export default createAppContainer(
       screen: TakeActionScreen,
       navigationOptions: () => ({
         title: "TakeAction",
+      }),
+    },
+
+    NearestHospital: {
+      screen: NeareastHospitalScreen,
+      navigationOptions: () => ({
+        title: "Nearest Hospital",
       }),
     },
   })
