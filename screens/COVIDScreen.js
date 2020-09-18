@@ -105,7 +105,10 @@ export default class COVIDScreen extends React.Component {
                     source={require("../assets/News.png")}
                     imageStyle={styles.imageCellBackground}
                   >
-                    <TouchableOpacity style={styles.cellButton}>
+                    <TouchableOpacity
+                      style={styles.cellButton}
+                      onPress={this.goToCOVIDNews}
+                    >
                       <Text style={styles.cellText}>COVID News</Text>
                     </TouchableOpacity>
                   </ImageBackground>
