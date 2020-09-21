@@ -204,7 +204,9 @@ export default class HomeScreen extends React.Component {
                     style={styles.cellButton}
                     onPress={this.goToNearestHospital}
                   >
-                    <Text style={styles.cellText}>Nearest Hospital</Text>
+                    <Text style={styles.cellText}>
+                      {i18n.t("nearestHospital")}
+                    </Text>
                   </TouchableOpacity>
                 </ImageBackground>
               </Col>

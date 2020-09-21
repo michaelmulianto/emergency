@@ -412,11 +412,16 @@ export default class ChatScreen extends React.Component {
     ) {
       this.addBotMessage(i18n.t("bite"));
       this.topic = "";
+    } else if (
+      messageText.toLowerCase().search("hello") != -1 ||
+      messageText.toLowerCase().search("halo") != -1 ||
+      messageText.toLowerCase().search("hi") != -1
+    ) {
+      this.addBotMessage(i18n.t("hello"));
+      this.topic = "";
     } else {
       this.topic = "no response";
-      this.addBotMessage(
-        "Please ensure that you typed in your emergency correctly. If you did and you are receiving this message, please contact our developer to input your emergency into our system or wait for a future update. Thank you."
-      );
+      this.addBotMessage(i18n.t("wrong"));
       this.topic = "";
     }
   }
@@ -441,7 +446,7 @@ export default class ChatScreen extends React.Component {
       messages: [
         {
           _id: 0,
-          text: "Hello! How can I help you?",
+          text: i18n.t("intro"),
           createdAt: new Date(),
           user: bot,
         },

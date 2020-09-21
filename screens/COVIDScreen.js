@@ -29,9 +29,9 @@ export default class COVIDScreen extends React.Component {
     this.props.navigation.navigate("SymptomChecker");
   };
 
-  state = { covidStats: "" };
+  state = { covidStats: [] };
   getCOVIDStats() {
-    let statUpdate = "";
+    let statUpdate = [];
     let count = 0;
     let stats = "https://api.covid19api.com/total/country/indonesia";
 
@@ -49,16 +49,11 @@ export default class COVIDScreen extends React.Component {
         count--;
         mostRecent = responseJSON[count];
 
-        statUpdate =
-          "\nConfirmed: " +
-          mostRecent.Confirmed +
-          "\nDeaths: " +
-          mostRecent.Deaths +
-          "\nRecovered: " +
-          mostRecent.Recovered +
-          "\nActive: " +
-          mostRecent.Active +
-          "\n";
+        statUpdate[0] = mostRecent.Confirmed;
+        statUpdate[1] = mostRecent.Deaths;
+        statUpdate[2] = mostRecent.Recovered;
+        statUpdate[3] = mostRecent.Active;
+
         console.log(statUpdate);
         this.setState({ covidStats: statUpdate });
       });
@@ -95,7 +90,9 @@ export default class COVIDScreen extends React.Component {
                       onPress={this.goToAboutCOVID}
                       style={styles.cellButton}
                     >
-                      <Text style={styles.cellText}>About COVID-19</Text>
+                      <Text style={styles.cellText}>
+                        {i18n.t("aboutCOVID")}
+                      </Text>
                     </TouchableOpacity>
                   </ImageBackground>
                 </Row>
@@ -124,9 +121,21 @@ export default class COVIDScreen extends React.Component {
                   >
                     <TouchableOpacity style={styles.cellButton}>
                       <Text style={styles.cellText}>
-                        {this.state.covidStats == ""
+                        {this.state.covidStats[0] == ""
                           ? "Loading... "
-                          : this.state.covidStats}
+                          : "\n" +
+                            i18n.t("confirmed") +
+                            this.state.covidStats[0] +
+                            "\n" +
+                            i18n.t("deaths") +
+                            this.state.covidStats[1] +
+                            "\n" +
+                            i18n.t("recovered") +
+                            this.state.covidStats[2] +
+                            "\n" +
+                            i18n.t("active") +
+                            this.state.covidStats[3] +
+                            "\n"}
                       </Text>
                     </TouchableOpacity>
                   </ImageBackground>
@@ -141,7 +150,7 @@ export default class COVIDScreen extends React.Component {
                       onPress={this.goToSymptomChecker}
                       style={styles.cellButton}
                     >
-                      <Text style={styles.cellText}>Symptom Checker</Text>
+                      <Text style={styles.cellText}>{i18n.t("symptom")}</Text>
                     </TouchableOpacity>
                   </ImageBackground>
                 </Row>

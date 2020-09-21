@@ -5,6 +5,7 @@ const langEn = {
   //home screen
   Emer: "Disaster",
   Chat: "Chat",
+  nearestHospital: "Nearest Hospital",
   no: "Pick Number",
 
   //emergency screen
@@ -16,6 +17,18 @@ const langEn = {
   Volcano: "Volcanic Eruption",
   Call: "Emergency Call",
   Number: "Pick Number",
+
+  //covid screen
+  aboutCOVID: "About COVID-19",
+  symptom: "Symptom Checker",
+  confirmed: "Confirmed: ",
+  deaths: "Deaths: ",
+  recovered: "Recovered: ",
+  active: "Active: ",
+
+  //BNPB screen
+  aboutBNPB: "About BNPB",
+  takeAction: "Take Action",
 
   //flood screen
   ft: "FLOOD:",
@@ -145,6 +158,10 @@ const langEn = {
     "2. To coordinate the implementation of disaster management activities in a planned, integrated and comprehensive manner.",
 
   //chat bot responses
+  intro: "Hello! How can I help you?",
+  hello: "Hello.",
+  wrong:
+    "Please ensure that you typed in your emergency correctly. If you did and you are receiving this message, please contact our developer to input your emergency into our system or wait for a future update. Thank you.",
   hospital1: "Your nearest hospital is ",
   hospital2: ". Here is the link for directions: ",
   heartattack: "Hang on, looking for a hospital now...",
@@ -157,11 +174,11 @@ const langEn = {
   headache24n:
     "We recommend taking a nap for 1-2 hours. If you still experience a headache, try visiting your local pharmacist.",
   headache5:
-    "Headache is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Headache is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   stroke:
     "Please immediately bring the person to a hospital. Hang on while we look for one...",
   pinkeye:
-    "A pink eye is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "A pink eye is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   choking:
     "You must islodge the respiratory tract obstruction by bending the person's head and shoulders forward, or in the case of a small child, hold them upside down and thump the back hard, between the shoulder-blades.",
   fracture:
@@ -172,11 +189,11 @@ const langEn = {
   fever2:
     "We recommend you to take over-the-counter medicine such as ibuprofen to reduce fever. Continuously take your temperature and try to get some sleep. Remember to keep hydrated and stay cool.",
   fever3:
-    "Fever is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Fever is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   backpain:
     "Back pain can often be eased with home treatments, including icing or heating, strengthening exercises, light activity and over-the-counter medications for pain. If symptoms persist after a week or two of home care, we recommend you come in for a physician evaluation.",
   diarrhea:
-    "Diarrhea is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Diarrhea is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   runnynose:
     "Try placing a cool mist humidifier in the bedroom to help promote better sleep, keeping the nose clear.",
   itchy: "Is your skin turning red or swollen?",
@@ -204,22 +221,22 @@ const langEn = {
   stomachache:
     "Place a hot water bottle or heated wheat bag on your stomach. Try using oils such as “minyak kayu putih” as well. If your stomach ache is not cured within 30 minutes, please go see a doctor as it is a symptom of COVID-19.",
   losstastesmell:
-    "A loss of taste and/or smell is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number of the hospital closest to you...",
+    "A loss of taste and/or smell is a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor.",
   chestpain:
-    "Chest pain is a serious symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Chest pain is a serious symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   cough: "Is your cough dry?",
   coughy:
-    "Dry cough is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Dry cough is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   coughn:
     "Please drink lots of water and rest your body. If your coughing continues to get worse after a couple of days, please seek medical help.",
   lossspeechmove:
-    "Loss of speech or movement is a serious symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Loss of speech or movement is a serious symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   tired:
-    "Tiredness is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Tiredness is one of the most common symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   earpain:
     "This might be a sign of an ear infection. Please go see a doctor immediately. Here is the closest hospital to you.",
   discolor:
-    "Discoloration of fingers or toes are a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the number and location of the hospital closest to you...",
+    "Discoloration of fingers or toes are a symptom of COVID-19. We recommend you take our COVID symptom survey in the COVID section or immediately contact your doctor. Here is the location of the hospital closest to you...",
   dryskin:
     "This is a sign of eczema. We recommend you to keep moisturizing and see a dermatologist for professional help.",
   vomit:
@@ -228,6 +245,7 @@ const langEn = {
     "Please continue to wash your bitten part with soap and water for as long as 15 minutes and then apply an antibiotic cream. We also recommend you see a doctor as soon as possible.",
 
   //survey buttons
+  statement: "Please select the sicknesses that you are currently experiencing",
   most1: "Fever",
   most2: "Dry Cough",
   most3: "Tiredness",
@@ -253,6 +271,7 @@ const langIn = {
   //home screen
   Emer: "Bencana",
   Chat: "Bot Obrolan",
+  nearestHospital: "Rumah Sakit Terdekat",
   no: "Pilih Nomor Telpon",
 
   //emergency screen
@@ -264,6 +283,18 @@ const langIn = {
   Volcano: "Gunung Meletus",
   Call: "Telepon Darurat",
   Number: "Pilih",
+
+  //covid screen
+  aboutCOVID: "Tentang COVID-19",
+  symptom: "Pemeriksa Gejala",
+  confirmed: "Total: ",
+  deaths: "Meninggal: ",
+  recovered: "Sembuh: ",
+  active: "Aktif: ",
+
+  //BNPB screen
+  aboutBNPB: "Tentang BNPB",
+  takeAction: "Ambil Tindakan",
 
   //flood screen
   ft: "BANJIR:",
@@ -394,6 +425,10 @@ const langIn = {
     "Halaman ini akan diperbarui ketika BNPB memiliki berita kritis yang harus diketahui oleh warga. Anda akan menerima pemberitahuan setiap kali pembaruan dilakukan pada halaman ini. Terima kasih atas pengertian Anda.",
 
   //chat bot responses
+  intro: "Halo! Ada yang saya bisa bantu?",
+  hello: "Halo.",
+  wrong:
+    "Harap pastikan Anda mengetik dengan benar. Jika Anda melakukannya dan Anda menerima pesan ini, silakan hubungi pengembang kami untuk memasukkan keadaan darurat Anda ke dalam sistem kami atau menunggu pembaruan di masa mendatang. Terima kasih.",
   hospital1: "Rumah sakit terdekat anda adalah ",
   hospital2: ". Inilah tautan untuk arahnya: ",
   heartattack:
@@ -407,11 +442,11 @@ const langIn = {
   headache24y: "Mohon menunggu saat kami mendeteksi rumah sakit terdekat...",
   headache24n: "Coba tidurkan diri.",
   headache5:
-    "Sakit kepala adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+    "Sakit kepala adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit yang terdekat dengan Anda...",
   stroke:
     "Tolong segera bawa orang itu ke rumah sakit. Mohon tunggu, kami sedang mencari rumah sakit terdekat.",
   pinkeye:
-    "Mata merah muda adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+    "Mata merah muda adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit yang terdekat dengan Anda...",
   choking:
     "Anda harus menghindari sumbatan saluran pernapasan dengan menekuk kepala dan bahu orang yang tersedak ke depan. Jika yang tersedak adalah anak kecil, pegang dengan posisi terbalik dan benturkan bagian belakangnya dengan keras di antara tulang belikat.",
   fracture:
@@ -422,11 +457,11 @@ const langIn = {
   fever2:
     "Kami menyarankan Anda untuk minum obat ibuprofen untuk mengurangi demam. Terus mengukur suhu tubuh anda dan mencoba tidur. Ingatlah untuk tetap terhidrasi dan tetap tenang.",
   fever3:
-    "Demam adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+    "Demam adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit yang terdekat dengan Anda...",
   backpain:
     "Sakit  punggung seringkali dapat diredakan dengan perawatan di rumah, termasuk pemanasan, latihan penguatan, aktivitas ringan dan obat-obatan bebas untuk nyeri. Jika gejalanya menetap setelah satu atau dua minggu perawatan di rumah, kami sarankan anda pergi ke dokter untuk dievaluasi.",
   diarrhea:
-    "Diare adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+    "Diare adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit yang terdekat dengan Anda...",
   runnynose:
     "Cobalah menempatkan pelembap kabut dingin di kamar tidur untuk membantu meningkatkan kualitas tidur, membuat hidung tetap jernih.",
   itchy: "Apakah kulit anda merah atau bengkak?",
@@ -453,28 +488,44 @@ const langIn = {
   stomachache:
     "Letakkan botol air panas atau kantong gandum hangat di perut Anda. Coba gunakan juga minyak seperti minyak kayu putih. Jika sakit perut Anda tidak kunjung sembuh dalam waktu 30 menit, kunjungi dokter karena ini merupakan gejala COVID-19.",
   losstastesmell:
-    "Kehilangan rasa dan / atau bau adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor rumah sakit terdekat dengan Anda...",
+    "Kehilangan rasa dan / atau bau adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda.",
   chestpain:
-    "Nyeri dada adalah gejala serius COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+    "Nyeri dada adalah gejala serius COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit yang terdekat dengan Anda...",
   cough: "Apakah batuk Anda kering?",
   coughy:
-    "Batuk kering adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut nomor dan lokasi rumah sakit terdekat dengan anda...",
+    "Batuk kering adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit terdekat dengan anda...",
   coughn:
     "Mohon minum banyak air dan istirahatkan tubuh Anda. Jika batuk Anda terus memburuk setelah beberapa hari, segera cari bantuan medis.",
   lossspeechmove:
-    "Kehilangan kemampuan bicara atau bergerak adalah gejala serius COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah nomor dan lokasi rumah sakit yang terdekat dengan Anda...",
+    "Kehilangan kemampuan bicara atau bergerak adalah gejala serius COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit yang terdekat dengan Anda...",
   tired:
-    "Kelelahan adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut nomor dan lokasi rumah sakit terdekat dengan anda ...",
+    "Kelelahan adalah salah satu gejala COVID-19 yang paling umum. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut lokasi rumah sakit terdekat dengan anda ...",
   earpain:
     "Ini mungkin tanda infeksi telinga. Silakan segera pergi ke dokter. Ini rumah sakit terdekat dengan Anda.",
   discolor:
-    "Perubahan warna pada jari tangan atau kaki adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut nomor dan lokasi rumah sakit terdekat dengan anda ...",
+    "Perubahan warna pada jari tangan atau kaki adalah gejala COVID-19. Sebaiknya Anda mengikuti survei gejala COVID kami di bagian COVID atau segera hubungi dokter Anda. Berikut adalah lokasi rumah sakit terdekat dengan anda ...",
   dryskin:
     "Ini pertanda eksim. Kami menyarankan Anda untuk tetap melembabkan dan menemui dokter kulit untuk bantuan profesional.",
   vomit:
     "Cobalah mengistirahatkan perut Anda selama satu atau dua jam kemudian masukkan sedikit cairan bening seperti air. Anda harus menghindari produk susu dan makanan yang tinggi serat. Jika muntah berlanjut, silakan pergi dan temui dokter.",
   bite:
     "Lanjutkan mencuci bagian yang digigit dengan sabun dan air selama 15 menit, lalu oleskan krim antibiotik. Kami juga menganjurkan agar Anda menemui dokter sesegera mungkin.",
+
+  //survey buttons
+  statement: "Silakan pilih penyakit yang Anda alami",
+  most1: "Demam",
+  most2: "Batuk Kering",
+  most3: "Kelelahan",
+  less1: "Sakit dan Nyeri",
+  less2: "Sakit Tenggorokan",
+  less3: "Diare",
+  less4: "Konjungtivitis",
+  less5: "Sakit Kepala",
+  less6: "Kehilangan Rasa atau Bau",
+  less7: "Ruam/Perubahan Warna Kulit",
+  serious1: "Sulit Bernapas",
+  serious2: "Nyeri/Tekanan Dada",
+  serious3: "Kehilangan Bicara atau Gerakan",
 };
 
 i18n.fallbacks = true;

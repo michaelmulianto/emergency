@@ -152,9 +152,7 @@ export default class SymptomCheckerScreen extends React.Component {
         <View style={styles.card}>
           <Text style={styles.text}></Text>
 
-          <Text style={styles.text}>
-            Please select the sicknesses that you are currently experiencing.
-          </Text>
+          <Text style={styles.text}>{i18n.t("statement")}</Text>
           <Text style={styles.text}></Text>
           <Text style={styles.text}></Text>
         </View>

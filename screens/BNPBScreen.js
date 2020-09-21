@@ -62,7 +62,7 @@ export default class BNPBScreen extends React.Component {
                       onPress={this.goToAboutBNPB}
                       style={styles.cellButton}
                     >
-                      <Text style={styles.cellText}>About BNPB</Text>
+                      <Text style={styles.cellText}>{i18n.t("aboutBNPB")}</Text>
                     </TouchableOpacity>
                   </ImageBackground>
                 </Row>
@@ -90,7 +90,9 @@ export default class BNPBScreen extends React.Component {
                       onPress={this.goToTakeAction}
                       style={styles.cellButton}
                     >
-                      <Text style={styles.cellText}>Take Action</Text>
+                      <Text style={styles.cellText}>
+                        {i18n.t("takeAction")}
+                      </Text>
                     </TouchableOpacity>
                   </ImageBackground>
                 </Row>
