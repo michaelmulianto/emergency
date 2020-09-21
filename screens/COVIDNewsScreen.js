@@ -1,5 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, Linking, ScrollView, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Linking,
+  ScrollView,
+  Image,
+  FlatList,
+  ActivityIndicator,
+  View,
+} from "react-native";
 import { Container, Header, Left, Right } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -11,9 +20,7 @@ function _linkPressed(url) {
 
 export default class AboutCOVIDNewsScreen extends React.Component {
   state = {
-    title: [],
-    links: [],
-    image: [],
+    articles: [],
   };
   getCOVIDNews() {
     let news =
@@ -24,9 +31,6 @@ export default class AboutCOVIDNewsScreen extends React.Component {
       .then((responseJSON) => {
         let newsSource = responseJSON;
         let count = 0;
-        let t = [];
-        let l = [];
-        let im = [];
 
         for (let i = 0; i < responseJSON.articles.length; i++) {
           newsSource = responseJSON.articles[i];
@@ -37,30 +41,18 @@ export default class AboutCOVIDNewsScreen extends React.Component {
             newsSource.title.toLowerCase().search("vaksin") != -1 ||
             newsSource.title.toLowerCase().search("lab") != -1
           ) {
-            t[count] = newsSource.title;
-            l[count] = newsSource.url;
+            // newsSource.url, newsSource.title
 
             if (newsSource.urlToImage == null) {
-              im[count] = "no foto";
-            } else {
-              im[count] = newsSource.urlToImage;
+              newsSource.urlToImage = "nothing";
             }
 
+            newsSource.key = `${count}`;
             count++;
-          } else {
-            t[count] = "";
-            l[count] = "";
-            im[count] = "";
+            this.setState({ articles: [...this.state.articles, newsSource] });
+            console.log(newsSource.urlToImage);
           }
         }
-
-        console.log(t);
-        console.log(l);
-        console.log(im);
-
-        this.setState({ title: t });
-        this.setState({ links: l });
-        this.setState({ image: im });
       });
   }
 
@@ -68,143 +60,50 @@ export default class AboutCOVIDNewsScreen extends React.Component {
     this.getCOVIDNews();
   }
 
+  _renderItem = ({ item }) => {
+    console.log("Here's the image:");
+    console.log(item.urlToImage);
+    return (
+      <TouchableOpacity
+        onPress={() => _linkPressed(item.url)}
+        style={styles.cellButton}
+      >
+        <Grid style={styles.grid}>
+          <Col>
+            <Image
+              source={{ uri: item.urlToImage }}
+              style={{
+                height: 79,
+                width: 80,
+              }}
+            ></Image>
+          </Col>
+          <Col style={{ flex: 3.2 }}>
+            <Text style={styles.title}>{item.title}</Text>
+          </Col>
+        </Grid>
+      </TouchableOpacity>
+    );
+  };
+
   render() {
     console.log(JSON.stringify(i18n));
-    let image0 = {
-      uri: this.state.image[0],
-    };
-    let image1 = {
-      uri: this.state.image[1],
-    };
-    let image2 = {
-      uri: this.state.image[2],
-    };
-    let image3 = {
-      uri: this.state.image[3],
-    };
-    let image4 = {
-      uri: this.state.image[4],
-    };
-    let image5 = {
-      uri: this.state.image[5],
-    };
-    return (
-      <ScrollView>
-        <TouchableOpacity
-          onPress={() => _linkPressed(this.state.links[0])}
-          style={styles.cellButton}
-        >
-          <Grid style={styles.grid}>
-            <Col>
-              <Image
-                source={image0}
-                style={{
-                  height: 79,
-                  width: 80,
-                }}
-              ></Image>
-            </Col>
-            <Col style={{ flex: 3.2 }}>
-              <Text style={styles.title}>{this.state.title[0]}</Text>
-            </Col>
-          </Grid>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => _linkPressed(this.state.links[1])}
-          style={styles.cellButton}
-        >
-          <Grid style={styles.grid}>
-            <Col>
-              <Image
-                source={image1}
-                style={{
-                  height: 79,
-                  width: 80,
-                }}
-              ></Image>
-            </Col>
-            <Col style={{ flex: 3.2 }}>
-              <Text style={styles.title}>{this.state.title[1]}</Text>
-            </Col>
-          </Grid>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => _linkPressed(this.state.links[2])}
-          style={styles.cellButton}
-        >
-          <Grid style={styles.grid}>
-            <Col>
-              <Image
-                source={image2}
-                style={{
-                  height: 79,
-                  width: 80,
-                }}
-              ></Image>
-            </Col>
-            <Col style={{ flex: 3.2 }}>
-              <Text style={styles.title}>{this.state.title[2]}</Text>
-            </Col>
-          </Grid>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => _linkPressed(this.state.links[3])}
-          style={styles.cellButton}
-        >
-          <Grid style={styles.grid}>
-            <Col>
-              <Image
-                source={image3}
-                style={{
-                  height: 79,
-                  width: 80,
-                }}
-              ></Image>
-            </Col>
-            <Col style={{ flex: 3.2 }}>
-              <Text style={styles.title}>{this.state.title[3]}</Text>
-            </Col>
-          </Grid>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => _linkPressed(this.state.links[4])}
-          style={styles.cellButton}
-        >
-          <Grid style={styles.grid}>
-            <Col>
-              <Image
-                source={image4}
-                style={{
-                  height: 79,
-                  width: 80,
-                }}
-              ></Image>
-            </Col>
-            <Col style={{ flex: 3.2 }}>
-              <Text style={styles.title}>{this.state.title[4]}</Text>
-            </Col>
-          </Grid>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => _linkPressed(this.state.links[5])}
-          style={styles.cellButton}
-        >
-          <Grid style={styles.grid}>
-            <Col>
-              <Image
-                source={image5}
-                style={{
-                  height: 79,
-                  width: 80,
-                }}
-              ></Image>
-            </Col>
-            <Col style={{ flex: 3.2 }}>
-              <Text style={styles.title}>{this.state.title[5]}</Text>
-            </Col>
-          </Grid>
-        </TouchableOpacity>
-      </ScrollView>
+    return this.state.articles.length === 0 ? (
+      <View style={styles.modalBackground}>
+        <View style={styles.activityIndicatorWrapper}>
+          <ActivityIndicator
+            animating={true}
+            size="large"
+            style={styles.activityIndicator}
+          />
+        </View>
+      </View>
+    ) : (
+      <FlatList
+        data={this.state.articles}
+        renderItem={this._renderItem}
+        keyExtractor={(item) => item.key}
+      />
     );
   }
 }
