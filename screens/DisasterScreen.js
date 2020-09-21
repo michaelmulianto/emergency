@@ -7,7 +7,7 @@ import {
   ImageBackground,
   View,
 } from "react-native";
-import { Container, Header } from "native-base";
+import { Container } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import i18n from "../components/Translation";
@@ -185,13 +185,6 @@ export default class DisasterScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
   cell: {
     margin: 10,
     alignItems: "center",
@@ -227,11 +220,7 @@ const styles = StyleSheet.create({
     height: "100%",
     borderRadius: 20,
   },
-  cellIcon: {},
-  cellText: {
-    fontWeight: "bold",
-    color: "white",
-  },
+
   overlayBackground: {
     backgroundColor: "rgba(246,245,220,100)",
     flex: 1,

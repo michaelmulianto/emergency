@@ -2,15 +2,10 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  Alert,
-  Linking,
   ImageBackground,
   View,
   ScrollView,
 } from "react-native";
-import { Container, Header } from "native-base";
-import { Col, Row, Grid } from "react-native-easy-grid";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import i18n from "../components/Translation";
 
 export default class AboutBNPBScreen extends React.Component {
@@ -62,12 +57,6 @@ export default class AboutBNPBScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   card: {
     borderWidth: 2,
     borderColor: "rgba(255, 165, 0, 0)",
@@ -81,30 +70,12 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     fontSize: 18,
   },
-  source: {
-    color: "black",
-    paddingLeft: 10,
-    paddingRight: 10,
-    fontSize: 10,
-  },
   title: {
     color: "black",
     fontSize: 25,
     fontWeight: "bold",
     paddingLeft: 10,
     paddingRight: 10,
-  },
-  image: {
-    width: null,
-    height: 233,
-    resizeMode: "contain",
-    margin: 10,
-  },
-  mainView: {
-    paddingTop: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 10,
   },
   cellBackground: {
     width: "100%",
@@ -124,14 +95,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.7)",
     flex: 1,
   },
-  cellText: {
-    color: "white",
-    fontSize: 35,
-  },
-  cellText2: {
-    color: "white",
-    fontSize: 20,
-  },
+
   outer: {
     flex: 1,
   },

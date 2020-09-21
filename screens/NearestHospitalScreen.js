@@ -8,6 +8,8 @@ import {
   Image,
   View,
   ScrollView,
+  ActivityIndicator,
+  Modal,
 } from "react-native";
 import { Container, Header } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -40,6 +42,7 @@ export default class NearestHospitalScreen extends React.Component {
     name: [],
     distance: [],
     links: [],
+    animating: true,
   };
 
   topic = "";
@@ -85,12 +88,23 @@ export default class NearestHospitalScreen extends React.Component {
     );
   }
 
+  closeActivityIndicator = () =>
+    setTimeout(
+      () =>
+        this.setState({
+          animating: false,
+        }),
+      11000
+    );
+
   componentDidMount() {
     this.getHospital();
+    this.closeActivityIndicator();
   }
 
   render() {
     console.log(JSON.stringify(i18n));
+    const animating = this.state.animating;
     return (
       <ScrollView>
         <TouchableOpacity
@@ -177,6 +191,24 @@ export default class NearestHospitalScreen extends React.Component {
           <Text style={styles.title}>{this.state.name[11]}</Text>
           <Text style={styles.title}>{this.state.distance[11] + "km"}</Text>
         </TouchableOpacity>
+        <Modal
+          transparent={true}
+          animationType={"none"}
+          visible={animating}
+          onRequestClose={() => {
+            console.log("close modal");
+          }}
+        >
+          <View style={styles.modalBackground}>
+            <View style={styles.activityIndicatorWrapper}>
+              <ActivityIndicator
+                animating={animating}
+                size="large"
+                style={styles.activityIndicator}
+              />
+            </View>
+          </View>
+        </Modal>
       </ScrollView>
     );
   }
@@ -204,11 +236,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 0,
+
     height: 60,
-    borderWidth: 2,
+    borderWidth: 0.5,
     borderColor: "#D4D4D4",
-    margin: 3,
+    margin: 0,
   },
   title: {
     backgroundColor: "white",
@@ -220,5 +253,18 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0, 0, 0, 0)",
     margin: 3,
     fontWeight: "bold",
+  },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 80,
+    position: "absolute",
+    left: 140,
+    right: 140,
+    top: 300,
+    bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    borderRadius: 10,
   },
 });

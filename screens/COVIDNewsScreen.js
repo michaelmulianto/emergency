@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  Alert,
-  Linking,
-  ImageBackground,
-  ScrollView,
-  Image,
-} from "react-native";
+import { StyleSheet, Text, Linking, ScrollView, Image } from "react-native";
 import { Container, Header, Left, Right } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -42,12 +34,23 @@ export default class AboutCOVIDNewsScreen extends React.Component {
             newsSource.title.toLowerCase().search("corona") != -1 ||
             newsSource.title.toLowerCase().search("covid") != -1 ||
             newsSource.title.toLowerCase().search("mask") != -1 ||
-            newsSource.title.toLowerCase().search("vaksin") != -1
+            newsSource.title.toLowerCase().search("vaksin") != -1 ||
+            newsSource.title.toLowerCase().search("lab") != -1
           ) {
             t[count] = newsSource.title;
             l[count] = newsSource.url;
-            im[count] = newsSource.urlToImage;
+
+            if (newsSource.urlToImage == null) {
+              im[count] = "no foto";
+            } else {
+              im[count] = newsSource.urlToImage;
+            }
+
             count++;
+          } else {
+            t[count] = "";
+            l[count] = "";
+            im[count] = "";
           }
         }
 
@@ -73,37 +76,133 @@ export default class AboutCOVIDNewsScreen extends React.Component {
     let image1 = {
       uri: this.state.image[1],
     };
+    let image2 = {
+      uri: this.state.image[2],
+    };
+    let image3 = {
+      uri: this.state.image[3],
+    };
+    let image4 = {
+      uri: this.state.image[4],
+    };
+    let image5 = {
+      uri: this.state.image[5],
+    };
     return (
       <ScrollView>
         <TouchableOpacity
           onPress={() => _linkPressed(this.state.links[0])}
           style={styles.cellButton}
         >
-          <Text style={styles.title}>
-            <Image
-              source={image0}
-              style={{
-                height: 50,
-
-                width: 50,
-              }}
-            ></Image>
-
-            {this.state.title[0]}
-          </Text>
+          <Grid style={styles.grid}>
+            <Col>
+              <Image
+                source={image0}
+                style={{
+                  height: 79,
+                  width: 80,
+                }}
+              ></Image>
+            </Col>
+            <Col style={{ flex: 3.2 }}>
+              <Text style={styles.title}>{this.state.title[0]}</Text>
+            </Col>
+          </Grid>
         </TouchableOpacity>
-
         <TouchableOpacity
           onPress={() => _linkPressed(this.state.links[1])}
           style={styles.cellButton}
         >
-          <Text style={styles.title}>{this.state.title[1]}</Text>
+          <Grid style={styles.grid}>
+            <Col>
+              <Image
+                source={image1}
+                style={{
+                  height: 79,
+                  width: 80,
+                }}
+              ></Image>
+            </Col>
+            <Col style={{ flex: 3.2 }}>
+              <Text style={styles.title}>{this.state.title[1]}</Text>
+            </Col>
+          </Grid>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => _linkPressed(this.state.links[2])}
           style={styles.cellButton}
         >
-          <Text style={styles.title}>{this.state.title[2]}</Text>
+          <Grid style={styles.grid}>
+            <Col>
+              <Image
+                source={image2}
+                style={{
+                  height: 79,
+                  width: 80,
+                }}
+              ></Image>
+            </Col>
+            <Col style={{ flex: 3.2 }}>
+              <Text style={styles.title}>{this.state.title[2]}</Text>
+            </Col>
+          </Grid>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => _linkPressed(this.state.links[3])}
+          style={styles.cellButton}
+        >
+          <Grid style={styles.grid}>
+            <Col>
+              <Image
+                source={image3}
+                style={{
+                  height: 79,
+                  width: 80,
+                }}
+              ></Image>
+            </Col>
+            <Col style={{ flex: 3.2 }}>
+              <Text style={styles.title}>{this.state.title[3]}</Text>
+            </Col>
+          </Grid>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => _linkPressed(this.state.links[4])}
+          style={styles.cellButton}
+        >
+          <Grid style={styles.grid}>
+            <Col>
+              <Image
+                source={image4}
+                style={{
+                  height: 79,
+                  width: 80,
+                }}
+              ></Image>
+            </Col>
+            <Col style={{ flex: 3.2 }}>
+              <Text style={styles.title}>{this.state.title[4]}</Text>
+            </Col>
+          </Grid>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => _linkPressed(this.state.links[5])}
+          style={styles.cellButton}
+        >
+          <Grid style={styles.grid}>
+            <Col>
+              <Image
+                source={image5}
+                style={{
+                  height: 79,
+                  width: 80,
+                }}
+              ></Image>
+            </Col>
+            <Col style={{ flex: 3.2 }}>
+              <Text style={styles.title}>{this.state.title[5]}</Text>
+            </Col>
+          </Grid>
         </TouchableOpacity>
       </ScrollView>
     );
@@ -111,13 +210,6 @@ export default class AboutCOVIDNewsScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
   grid: {
     backgroundColor: "rgba(0,0,0,0)",
   },
@@ -125,16 +217,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
 
-  overlayBackground: {
-    backgroundColor: "rgba(246,245,220,100)",
-    flex: 1,
-  },
   cellButton: {
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 0,
-
     height: 80,
     borderWidth: 0.5,
     borderColor: "#D4D4D4",

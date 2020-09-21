@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Dimensions,
-  StyleSheet,
-  ImageBackground,
-  Image,
-} from "react-native";
+import { View, Dimensions, StyleSheet, ImageBackground } from "react-native";
 
 import Carousel, { Pagination } from "react-native-snap-carousel"; // Version can be specified in package.json
 

@@ -160,14 +160,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 5,
   },
   grid: {
     backgroundColor: "rgba(0,0,0,0)",
   },
   logo: {
-    height: "100%",
-    width: "90%",
+    height: "95%",
+    width: "95%",
     resizeMode: "contain",
+    borderColor: "black",
+    borderWidth: 2,
   },
   cell1: {
     backgroundColor: "white",
@@ -176,6 +179,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "60%",
     width: "90%",
+    borderRadius: 15,
   },
   cell2: {
     backgroundColor: "white",
@@ -183,6 +187,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "90%",
+    borderRadius: 15,
   },
   cell3: {
     backgroundColor: "white",
@@ -191,6 +196,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "35%",
     width: "90%",
+    borderRadius: 15,
   },
   cell4: {
     backgroundColor: "white",
@@ -198,6 +204,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "90%",
+    borderRadius: 15,
   },
   cellButton: {
     backgroundColor: "rgba(0, 0, 0, 0.1)",

@@ -103,7 +103,7 @@ export default createAppContainer(
     AboutCOVID: {
       screen: AboutCOVIDScreen,
       navigationOptions: () => ({
-        title: "AboutCOVID",
+        title: "About COVID",
       }),
     },
 
@@ -117,7 +117,7 @@ export default createAppContainer(
     SymptomChecker: {
       screen: SymptomCheckerScreen,
       navigationOptions: () => ({
-        title: "SymptomChecker",
+        title: "Symptom Checker",
       }),
     },
 
@@ -131,7 +131,7 @@ export default createAppContainer(
     AboutBNPB: {
       screen: AboutBNPBScreen,
       navigationOptions: () => ({
-        title: "AboutBNPB",
+        title: "About BNPB",
       }),
     },
 
@@ -145,7 +145,7 @@ export default createAppContainer(
     TakeAction: {
       screen: TakeActionScreen,
       navigationOptions: () => ({
-        title: "TakeAction",
+        title: "Take Action",
       }),
     },
 

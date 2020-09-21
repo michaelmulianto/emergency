@@ -4,9 +4,9 @@ import {
   Text,
   Alert,
   Linking,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
-import { Container, Header } from "native-base";
+import { Container } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import i18n from "../components/Translation";
@@ -53,21 +53,21 @@ export default class EmergencyScreen extends React.Component {
           onPress: () => {
             console.log("+622129827444");
             Linking.openURL("tel://+622129827444");
-          }
+          },
         },
 
         {
           text: "Cancel",
           onPress: () => console.log("Cancel"),
-          style: "cancel"
+          style: "cancel",
         },
         {
           text: "TNI - +62 21 84595576",
           onPress: () => {
             console.log("+622184595576");
             Linking.openURL("tel://+622184595576");
-          }
-        }
+          },
+        },
       ],
       { cancelable: false }
     );
@@ -191,47 +191,35 @@ export default class EmergencyScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-
   cell: {
     backgroundColor: "yellow",
     margin: 10,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   cellButton: {
     backgroundColor: "pink",
     alignItems: "center",
     justifyContent: "center",
-    flex: 1
+    flex: 1,
   },
 
   grid: {
-    backgroundColor: "rgba(0,0,0,0.7)"
+    backgroundColor: "rgba(0,0,0,0.7)",
   },
 
   cellBackground: {
     width: "100%",
     height: "100%",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   Background: {
-    resizeMode: "contain"
+    resizeMode: "contain",
   },
   cellButton: {
     backgroundColor: "rgba(0,0,0,0.5)",
     alignItems: "center",
     justifyContent: "center",
-    height: "100%"
+    height: "100%",
   },
-  cellIcon: {},
-  cellText: {
-    fontWeight: "bold",
-    color: "white"
-  }
 });

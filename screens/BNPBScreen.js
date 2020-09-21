@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  Alert,
-  Linking,
-  ImageBackground,
-  Image,
-  View,
-} from "react-native";
-import { Container, Header } from "native-base";
+import { StyleSheet, Text, ImageBackground, View } from "react-native";
+import { Container } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import i18n from "../components/Translation";
@@ -112,20 +104,10 @@ export default class BNPBScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   grid: {
     backgroundColor: "rgba(0,0,0,0)",
   },
-  logo: {
-    height: "100%",
-    width: "90%",
-    resizeMode: "contain",
-  },
+
   cell1: {
     backgroundColor: "white",
     margin: 10,
@@ -133,6 +115,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "95.5%",
     width: "90%",
+    borderRadius: 15,
   },
   cell3: {
     backgroundColor: "white",
@@ -141,6 +124,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "35%",
     width: "90%",
+    borderRadius: 15,
   },
   cell4: {
     backgroundColor: "white",
@@ -148,6 +132,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "90%",
+    borderRadius: 15,
   },
   cellButton: {
     backgroundColor: "rgba(0, 0, 0, 0.1)",

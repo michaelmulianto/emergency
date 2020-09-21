@@ -2,8 +2,6 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  Alert,
-  Linking,
   ImageBackground,
   View,
   ScrollView,
@@ -40,12 +38,6 @@ export default class AboutCOVIDScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   card: {
     borderWidth: 2,
     borderColor: "rgba(255, 255, 255, 0.5)",
@@ -71,18 +63,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
-  image: {
-    width: null,
-    height: 233,
-    resizeMode: "contain",
-    margin: 10,
-  },
-  mainView: {
-    paddingTop: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 10,
-  },
   cellBackground: {
     width: "100%",
     height: "100%",
@@ -94,20 +74,10 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
   },
-  Background: {
-    resizeMode: "contain",
-  },
+
   grid: {
     backgroundColor: "rgba(0,0,0,0.7)",
     flex: 1,
-  },
-  cellText: {
-    color: "white",
-    fontSize: 35,
-  },
-  cellText2: {
-    color: "white",
-    fontSize: 20,
   },
   outer: {
     flex: 1,

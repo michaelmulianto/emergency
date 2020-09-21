@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   ImageBackground,
-  Image,
   TouchableOpacity,
   View,
   Dimensions,
@@ -224,23 +223,11 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   cell: {
     margin: 10,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
-  },
-  cellButton: {
-    backgroundColor: "pink",
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
   },
 
   grid: {
@@ -265,43 +252,10 @@ const styles = StyleSheet.create({
     height: "100%",
     borderRadius: 15,
   },
-  cellIcon: {},
   cellText: {
     fontWeight: "bold",
     color: "black",
     fontSize: 13,
-  },
-  logo: {
-    height: "100%",
-    width: "70%",
-    resizeMode: "contain",
-  },
-  carouselContainer: {
-    marginTop: 0,
-  },
-  itemContainer: {
-    width: ITEM_WIDTH,
-    height: ITEM_HEIGHT,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "black",
-  },
-  itemLabel: {
-    color: "white",
-    fontSize: 24,
-  },
-
-  circleGradient: {
-    backgroundColor: "white",
-    borderRadius: 5,
-  },
-  visit: {
-    margin: 4,
-    paddingHorizontal: 6,
-    textAlign: "center",
-    backgroundColor: "white",
-    color: "#008f68",
-    fontSize: 12,
   },
   overlayBackground: {
     backgroundColor: "rgba(246,245,220,100)",
